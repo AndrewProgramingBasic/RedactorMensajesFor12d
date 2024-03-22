@@ -1,0 +1,101 @@
+Buenas Días
+
+Se le da Inicio al siguiente Trabajo
+
+
+
+
+
+
+
+ Ticket 
+ CDC# 3900018978
+
+Nombre del Trabajo:
+
+ Desactivar abonados en el Facturador GSM RTB CCBATCH   
+Hora de inicio: 09:05:00
+
+ Servicios / Aplicaciones Afectadas
+
+
+ [LLENE AQUI LAS APLICACIONES AFECTADAS]
+
+ Justificación:
+ En vista que existen suscriptorescon status Disconnect(S4). Pasando los tiempos estimados del Ciclo de Vida y no han cambiado de Status. Debe realizarse la depuracion para liberar estos numeros
+
+Responsable de Trabajo:
+
+ [INGRESE AQUI LOS DATOS DEL EJECUTANTE]
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Días, siguiendo con el trabajo,  se solicita al personal de la Coord. Implementacion y Estabilizacion
+Hebert Garcia  04142044513 ejecutar las siguientes actividades:
+
+Enviar  Correo de Inicio de Ventana.
+
+Me encuentro atento a sus comentarios y al envío de las evidencias.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Días, prosiguiendo con el trabajo,  se solicita al personal de la Coordinación Procesos de Tasación 
+Felix Mejias 
+04164553490 ejecutar las siguientes actividades:
+
+Crear archivos batch con el reporte generado del los abonados afectados
+
+Quedo atento a sus comentarios y a la recepción de las evidencias.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Tardes, continuando con el trabajo, se solicita al personal de la Coordinación Procesos de Tasación 
+Felix Mejias 
+04164553490 ejecutar las siguientes actividades:
+
+Correr archivos batch en la aplicación CCBATCH para eliminar abonados del facturador GSM
+
+Agradezco de antemano sus comentarios y el envío de las evidencias.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Tardes, siguiendo con las actividades,  se solicita al personal de la Coord. Implementacion y Estabilizacion
+Hebert Garcia  04142044513 ejecutar las siguientes actividades:
+
+Llamar al COR Notificando fin de Ventana
+
+Agradezco de antemano sus comentarios y el envío de las evidencias.
+
+----------------------------------------------------------------------------------------------------
+
+
+Buenas Tardes
+
+Se le da Fin al siguiente Trabajo
+
+
+
+
+
+
+
+ Ticket 
+ CDC# 3900018978
+
+Nombre del Trabajo:
+
+ Desactivar abonados en el Facturador GSM RTB CCBATCH   
+Hora de fin: 16:10:00
+
+ Resultado
+
+
+ [COLOQUE AQUI EL RESULTADO]
+
+ Justificación:
+ Se notifica que se realizaron de manera exitosa todas las actividades reflajadas en la For12d, logrando así la correcta ejecución del trabajo Desactivar abonados en el Facturador GSM RTB CCBATCH
+
+Responsable de Trabajo:
+
+ [INGRESE AQUI LOS DATOS DEL EJECUTANTE]
+

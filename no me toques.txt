@@ -1,0 +1,151 @@
+
+
+Se le da Inicio al siguiente Trabajo
+
+
+
+
+
+
+
+ Ticket 
+ CDC# 3900019070
+
+Nombre del Trabajo:
+
+ Modificacion de vistas materializada en la base de datos de PRNDB1 para proyecto Autogestión Web.   
+Hora de inicio: 09:10:00
+
+ Servicios / Aplicaciones Afectadas
+
+
+ [LLENE AQUI LAS APLICACIONES AFECTADAS]
+
+ Justificación:
+ Se requiere hacer modificacion en la vista materiazada de la PRNBD1 para la segunda fase del proyecto Autogestion web con respecto al modulo cambio de plan. Teniendo numero VPTI-20221217.
+
+Responsable de Trabajo:
+
+ [INGRESE AQUI LOS DATOS DEL EJECUTANTE]
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Días, prosiguiendo con lo estipulado en la For12D,  se solicita al personal de la Coord. Base de Datos Luis Marchena  ejecutar las siguientes actividades:
+
+Respaldo de la del código (ddl) de la vistas view_PLANESA del esquema PREPAYPKG en la base de datos PRNDB.
+
+Estaré pendiente de sus comentarios y del envío de las evidencias.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Días, prosiguiendo con lo estipulado en la For12D,  se solicita al personal de la Coord. Base de Datos Luis Marchena  ejecutar las siguientes actividades:
+
+Creación usuario de Base de Dato con nombre: AUTOG BD PRN
+
+Estaré pendiente de sus comentarios y del envío de las evidencias.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Días, siguiendo con el trabajo,  se solicita al personal de la Coord. Base de Datos Luis Marchena  ejecutar las siguientes actividades:
+
+Creación de vistas en esquema PREPAYPKG en PRN para la consulta de planes activos y no activos
+
+Estaré pendiente de sus comentarios y del envío de las evidencias.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Días, siguiendo con el trabajo,  se solicita al personal de la Coord. Base de Datos Luis Marchena  ejecutar las siguientes actividades:
+
+Creación de vista materializada en esquema PREPAYPKG en PRN para la consulta de servicios activos y no activos
+
+Agradezco sus comentarios y solicito el envío de las evidencias.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Días, siguiendo con las actividades,  se solicita al personal de la Coord. Base de Datos Luis Marchena  ejecutar las siguientes actividades:
+
+Creación de vista materializada en esquema PREPAYPKG en PRN para la consulta de planes disponibles para cambio de plan
+
+Esperaré su pronta respuesta con sus comentarios y las evidencias.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Días, siguiendo con el trabajo,  se solicita al personal de la Coord. Base de Datos Luis Marchena  ejecutar las siguientes actividades:
+
+Ejecutar query para cambiar el intervalo de refrescamiento según sea la necesidad de las vistas
+
+Quedo a la espera de sus comentarios y el envío de las evidencias.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Días, siguiendo con las actividades,  se solicita al personal de la Coord. Base de Datos Luis Marchena  ejecutar las siguientes actividades:
+
+Creación de sinonimos para las vista creadas
+
+Agradezco de antemano sus comentarios y el envío de las evidencias.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Días, prosiguiendo con las actividades,  se solicita al personal de la Coord. Base de Datos Luis Marchena  ejecutar las siguientes actividades:
+
+Otorgar privilegios al usuario AUTOG para consultar las vistas
+
+Agradezco sus comentarios y solicito el envío de las evidencias.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Días, siguiendo con el trabajo,  se solicita al personal de la Coord. Base de Datos Luis Marchena  ejecutar las siguientes actividades:
+
+Realizar pruebas de consulta de vistas creadas desde el usuario AUTOG en la BD PRN
+
+Agradezco sus comentarios y solicito el envío de las evidencias.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Tardes, prosiguiendo con lo estipulado en la For12D,  se solicita al personal de la Coord. Base de Datos Luis Marchena  ejecutar las siguientes actividades:
+
+Realizar pruebas de actualizaciones de datos de planes o servicios en tablas.
+
+Me encuentro atento a sus comentarios y al envío de las evidencias.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Tardes, dando continuidad con la For12D, se solicita al personal de la Coord. Implementacion y Estabilizacion(CIE) Carlos Mendoza  ejecutar las siguientes actividades:
+
+Envio del correo de FIN y notifica a todos los involucrados. 
+
+Agradezco de antemano sus comentarios y el envío de las evidencias.
+
+----------------------------------------------------------------------------------------------------
+
+Se le da Fin al siguiente Trabajo
+
+
+
+
+
+
+
+ Ticket 
+ CDC# 3900019070
+
+Nombre del Trabajo:
+
+ Modificacion de vistas materializada en la base de datos de PRNDB1 para proyecto Autogestión Web.   
+Hora de fin: 12:55:00
+
+ Servicios / Aplicaciones Afectadas
+
+
+ [LLENE AQUI LAS APLICACIONES AFECTADAS]
+
+ Justificación:
+ Se requiere hacer modificacion en la vista materiazada de la PRNBD1 para la segunda fase del proyecto Autogestion web con respecto al modulo cambio de plan. Teniendo numero VPTI-20221217.
+
+Responsable de Trabajo:
+
+ [INGRESE AQUI LOS DATOS DEL EJECUTANTE]
+
