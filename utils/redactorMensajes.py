@@ -15,7 +15,7 @@ horaInicio = str(actividades[0]["FECHA Y HORA FIN"])[11:]
 def get_saludo(actividad):
     hora = int(((str(actividad["FECHA Y HORA FIN"]))[11:])[:2])
     if hora >= 6 and hora <= 11:
-        return "Buenas Días"
+        return "Buenos Días"
     elif hora >= 12 and hora <= 17:
         return "Buenas Tardes"
     return "Buenas Noches"
@@ -26,10 +26,10 @@ def notificacionFinal():
 horaFin = str(actividades[-1]["FECHA Y HORA FIN"])[11:]
 
 # Mensaje inicial del trabajo
-messageInitial = f"{get_saludo(actividades[0])}\n\nSe le da Inicio al siguiente Trabajo\n\n\n\n\n\n\n\n Ticket \n CDC# {cdc}\n\nNombre del Trabajo:\n\n {generales['name']}   \nHora de inicio: {horaInicio}\n\n Servicios / Aplicaciones Afectadas\n\n\n [LLENE AQUI LAS APLICACIONES AFECTADAS]\n\n Justificación:\n {generales['justify']}\n\nResponsable de Trabajo:\n\n [INGRESE AQUI LOS DATOS DEL EJECUTANTE]\n\n"
+messageInitial = f"{get_saludo(actividades[0])}\n\nSe le da Inicio al siguiente Trabajo\n\n\nTicket \n CDC# {cdc}\n\nNombre del Trabajo:\n\n {generales['name']}   \nHora de inicio: {horaInicio}\n\n Servicios / Aplicaciones Afectadas\n\n\n [LLENE AQUI LAS APLICACIONES AFECTADAS]\n\n Justificación:\n {generales['justify']}\n\nResponsable de Trabajo:\n\n [INGRESE AQUI LOS DATOS DEL EJECUTANTE]\n\n"
 
 # Mensaje final del trabajo
-messageFinal = f"\n\n\n{get_saludo(actividades[-1])}\n\nSe le da Fin al siguiente Trabajo\n\n\n\n\n\n\n\n Ticket \n CDC# {cdc}\n\nNombre del Trabajo:\n\n {generales['name']}   \nHora de fin: {horaFin}\n\n Resultado\n\n\n [COLOQUE AQUI EL RESULTADO]\n\n Justificación:\n {notificacionFinal()}\n\nResponsable de Trabajo:\n\n [INGRESE AQUI LOS DATOS DEL EJECUTANTE]\n\n"
+messageFinal = f"\n\n\n{get_saludo(actividades[-1])}\n\nSe le da Fin al siguiente Trabajo\n\n\n Ticket \n CDC# {cdc}\n\nNombre del Trabajo:\n\n {generales['name']}   \nHora de fin: {horaFin}\n\n Resultado\n\n\n [COLOQUE AQUI EL RESULTADO]\n\n Justificación:\n {notificacionFinal()}\n\nResponsable de Trabajo:\n\n [INGRESE AQUI LOS DATOS DEL EJECUTANTE]\n\n"
 
 
     
@@ -66,7 +66,7 @@ def mensajeContinuidadRandom():
 
 # Función para generar un mensaje genérico
 def messageGenerico(actividad, saludo):
-    message = f"\n\n{saludo}, {mensajeContinuidadRandom()} se solicita al personal de la {eliminar_texto_despues_frase(actividad['RESPONSABLE'], 'tlf')} ejecutar las siguientes actividades:\n\n{actividad['ACTIVIDAD']}\n\n{mensajeFinalRandom()}\n\n"
+    message = f"\n\n{saludo}, {mensajeContinuidadRandom()} se solicita al personal de la {eliminar_texto_despues_frase(actividad['RESPONSABLE'], 'tlf')} ejecutar las siguientes actividades:\n\n\t{actividad['ACTIVIDAD']}\n"
     return message
 
 # Función para guardar el texto en un archivo
@@ -77,10 +77,19 @@ def guardar_en_txt(texto, nombre_archivo):
 # Generar todos los mensajes
 todosLosMensajes = messageInitial
 for i in range(len(actividades)):
-    todosLosMensajes += "-" * 100
+    actividadesPast=actividades[i -1]['RESPONSABLE']
+    actividadesNext= "asofdhafapio"
+    if ((i +1) < len(actividades)):
+        actividadesNext= actividades[i +1]['RESPONSABLE']
+
     if i > 0 and i < len(actividades):
-        todosLosMensajes += messageGenerico(actividades[i], get_saludo(actividades[i]))
-    todosLosMensajes += "-" * 100
+        if actividades[i]['RESPONSABLE'] == actividadesPast:
+            todosLosMensajes+=f"\t{actividades[i]['ACTIVIDAD']}\n\n"
+        else: 
+            todosLosMensajes += messageGenerico(actividades[i], get_saludo(actividades[i]))
+        if(actividadesNext!=actividades[i]['RESPONSABLE'] ):
+            todosLosMensajes+=f"\n{mensajeFinalRandom()}\n\n"
+            todosLosMensajes += "-" * 200
 todosLosMensajes += messageFinal
 
 # Guardar los mensajes en un archivo de texto
