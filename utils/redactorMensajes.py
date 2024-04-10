@@ -2,18 +2,20 @@ from lectorFor12 import *
 import random
 
 # Obtener datos de la función for12Data
-[actividades, generales] = for12Data()
+[actividades, generales] = conActividadesPrevias()
+
 
 # Solicitar al usuario que introduzca el cdc del ticket de la for12d
 cdc = input("Por favor introduzca el cdc del ticket de la for12d: ")
 
 # Obtener hora de inicio y fin de las actividades
 
-horaInicio = str(actividades[0]["FECHA Y HORA FIN"])[11:]
+horaInicio = str(actividades[0]["FECHA Y HORA DE INICIO"])[11:]
 
 # Función para obtener el saludo según la hora
 def get_saludo(actividad):
-    hora = int(((str(actividad["FECHA Y HORA FIN"]))[11:])[:2])
+    #print(actividad["FECHA Y HORA DE INICIO"])
+    hora = int(((str(actividad["FECHA Y HORA DE INICIO"]))[11:])[:2])
     if hora >= 6 and hora <= 11:
         return "Buenos Días"
     elif hora >= 12 and hora <= 17:
@@ -23,13 +25,13 @@ def get_saludo(actividad):
 def notificacionFinal():
     return "Se notifica que se realizaron de manera exitosa todas las actividades reflajadas en la For12d, logrando así la correcta ejecución del trabajo " + generales['name']
 
-horaFin = str(actividades[-1]["FECHA Y HORA FIN"])[11:]
+horaFin = str(actividades[-1]["FECHA Y HORA DE INICIO"])[11:]
 
 # Mensaje inicial del trabajo
-messageInitial = f"{get_saludo(actividades[0])}\n\nSe le da Inicio al siguiente Trabajo\n\n\nTicket \n CDC# {cdc}\n\nNombre del Trabajo:\n\n {generales['name']}   \nHora de inicio: {horaInicio}\n\n Servicios / Aplicaciones Afectadas\n\n\n [LLENE AQUI LAS APLICACIONES AFECTADAS]\n\n Justificación:\n {generales['justify']}\n\nResponsable de Trabajo:\n\n [INGRESE AQUI LOS DATOS DEL EJECUTANTE]\n\n"
+messageInitial = f"{get_saludo(actividades[0])}\n\nSe le da Inicio al siguiente Trabajo\n\n\nTicket \n CDC# {cdc}\n\nNombre del Trabajo:\n\n {generales['name']}  \nHora de inicio: {horaInicio}\n\n Servicios / Aplicaciones Afectadas\n\n\n [LLENE AQUI LAS APLICACIONES AFECTADAS]\n\n Justificación:\n {generales['justify']}\n\nResponsable de Trabajo:\n\n [INGRESE AQUI LOS DATOS DEL EJECUTANTE]\n\n"
 
 # Mensaje final del trabajo
-messageFinal = f"\n\n\n{get_saludo(actividades[-1])}\n\nSe le da Fin al siguiente Trabajo\n\n\n Ticket \n CDC# {cdc}\n\nNombre del Trabajo:\n\n {generales['name']}   \nHora de fin: {horaFin}\n\n Resultado\n\n\n [COLOQUE AQUI EL RESULTADO]\n\n Justificación:\n {notificacionFinal()}\n\nResponsable de Trabajo:\n\n [INGRESE AQUI LOS DATOS DEL EJECUTANTE]\n\n"
+messageFinal = f"\n\n\n{get_saludo(actividades[-1])}\n\nSe le da Fin al siguiente Trabajo\n\n\n Ticket \n CDC# {cdc}\n\nNombre del Trabajo:\n\n {generales['name']}   \n\n Resultado\n\n\n OK\n\n Justificación:\n {notificacionFinal()}\n\nResponsable de Trabajo:\n\n [INGRESE AQUI LOS DATOS DEL EJECUTANTE]\n\n"
 
 
     
