@@ -2,13 +2,32 @@ import openpyxl
 from tkinter import filedialog
 import tkinter as tk
 
-def for12Data():
-    # Crear una instancia de la ventana Tkinter y ocultarla
+def tipoFor12d():
     root = tk.Tk()
     root.withdraw()
 
     # Abrir el diálogo de selección de archivo Excel
     nombre_libro = filedialog.askopenfilename()
+    libro = openpyxl.load_workbook(nombre_libro)
+    hoja = libro['Plan de trabajo']
+
+    numCelda = 1
+
+    # Iterar sobre las filas de la hoja 'Plan de trabajo'
+    for fila in hoja.iter_rows():
+        if numCelda >= 7:
+            numCelda = 0
+            # Crear un diccionario para almacenar los datos de cada fila
+            contador=1
+            for celda in fila:
+                if(contador==1 and celda.value==None):
+                    return [True,libro]
+                else:
+                    return [False,libro]
+        numCelda += 1
+
+def for12Data(archivo):
+
 
     # Lista para almacenar los nombres de los campos
     nameCampos = []
@@ -19,7 +38,7 @@ def for12Data():
 
     try:
         # Cargar el libro de trabajo Excel
-        libro = openpyxl.load_workbook(nombre_libro)
+        libro = archivo
         # Seleccionar la hoja 'Plan de trabajo'
         hoja = libro['Plan de trabajo']
         numCelda = 1
@@ -37,6 +56,7 @@ def for12Data():
                 contador=1
                 for celda in fila:
                     if(contador==1 and celda.value==None):
+                        
                         numCelda+=1
                         break
                     if(contador==1):
@@ -75,13 +95,11 @@ def for12Data():
         print(f"Error inesperado, al leer el archivo")
         exit()
 
-def conActividadesPrevias():
+def conActividadesPrevias(archivo):
         # Crear una instancia de la ventana Tkinter y ocultarla
-    root = tk.Tk()
-    root.withdraw()
+  
 
     # Abrir el diálogo de selección de archivo Excel
-    nombre_libro = filedialog.askopenfilename()
 
     # Lista para almacenar los nombres de los campos
     nameCampos = []
@@ -92,7 +110,7 @@ def conActividadesPrevias():
 
 
     # Cargar el libro de trabajo Excel
-    libro = openpyxl.load_workbook(nombre_libro)
+    libro = archivo
     # Seleccionar la hoja 'Plan de trabajo'
     hoja = libro['Plan de trabajo']
     numCelda = 1
@@ -108,7 +126,6 @@ def conActividadesPrevias():
             # Almacenar los nombres de los campos en la lista nameCampos
             for celda in fila:
                 nameCampos.append(celda.value)
-                print(celda.value)
         elif numCelda >= 8:
             numCelda = 0
             diccionario = {}
