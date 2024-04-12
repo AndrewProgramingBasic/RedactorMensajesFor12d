@@ -1,4 +1,5 @@
 from lectorFor12 import *
+from datetime import datetime
 import random
 def redactorFor12dNormal(archivo,cdc):
     
@@ -8,6 +9,11 @@ def redactorFor12dNormal(archivo,cdc):
     # Función para obtener el saludo según la hora
     def get_saludo(actividad):
         #print(actividad["FECHA Y HORA DE INICIO"])
+        # horaFormat = actividad["FECHA Y HORA DE INICIO"]
+        # if type(horaFormat) == str:
+        #     print(horaFormat[:len(horaFormat)-2] + ':00')
+        #     horaFormat = datetime.strptime(str(horaFormat[:len(horaFormat)-2] + ':00'), '%d/%m/%Y %H:%M:%S')
+        #     print(horaFormat)
         hora = int(((str(actividad["FECHA Y HORA DE INICIO"]))[11:])[:2])
         if hora >= 6 and hora <= 11:
             return "Buenos Días"
@@ -77,7 +83,7 @@ def redactorFor12dNormal(archivo,cdc):
         if ((i +1) < len(actividades)):
             actividadesNext= actividades[i +1]['RESPONSABLE']
 
-        if i > 0 and i < len(actividades):
+        if i > 0 and i < len(actividades)-1:
             if actividades[i]['RESPONSABLE'] == actividadesPast:
                 todosLosMensajes+=f"\t{actividades[i]['ACTIVIDAD']}\n\n"
             else: 

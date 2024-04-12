@@ -20,7 +20,7 @@ def tipoFor12d():
             # Crear un diccionario para almacenar los datos de cada fila
             contador=1
             for celda in fila:
-                if(contador==1 and celda.value==None):
+                if(contador==1 and type(celda.value)!=int):
                     return [True,libro]
                 else:
                     return [False,libro]

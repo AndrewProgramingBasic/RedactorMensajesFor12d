@@ -4,12 +4,14 @@ Se le da Inicio al siguiente Trabajo
 
 
 Ticket 
- CDC# 46546546546
+ CDC# 3900021163
 
 Nombre del Trabajo:
 
- Puebas controladas de afiliación automática del servicio conecta full madres (Promocion Madres 2024)  y servicio PCRF Whatsapp gratis a nivel del aplicativo GUI- RTB.  
-Hora de inicio: 19:00:00
+ AJUSTE DE TARIFA MEGA PLUS 8
+(PREPAGO NATURAL)
+  RTB-SAW  
+Hora de inicio: 23:00:00
 
  Servicios / Aplicaciones Afectadas
 
@@ -17,7 +19,7 @@ Hora de inicio: 19:00:00
  [LLENE AQUI LAS APLICACIONES AFECTADAS]
 
  Justificación:
- Con el fin de validar la afiliación automática de servicios a través de las aplicaciones (GUI- RTR), es necesaria realizar pruebas controladas del proceso para activacionesy cambios de plan asociados a dichos servicios. 
+ Siguiendo lineamientos de la Vicepresidencia de Mercadeo, se requiere realizar la actualización de Ajustes de Tarifas del Plan Mega Plus 8 PREPAGO NATURAL por la salida comercial de la promoción Madre 2024
 
 Responsable de Trabajo:
 
@@ -25,26 +27,43 @@ Responsable de Trabajo:
 
 
 
-Buenas Noches, siguiendo con el trabajo,  se solicita al personal de la Soporte de Aplicaciones para Gestión de Clientes // Antonio Ruiz        // 04245977038 ejecutar las siguientes actividades:
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	Soporte de Aplicaciones para Gestión de Clientes valida a nivel de traza de log operatividad de aplicativo GUI RTB
+Buenas Noches, siguiendo con las actividades,  se solicita al personal de la Coordinación Procesos de Tasación FELIX MEJIAS
+(04164553490) ejecutar las siguientes actividades:
+
+	Configuración de las tarifas en SAW.
+	Verificar que los cambios fueron realizado correctamente.
+
 
 Agradezco de antemano sus comentarios y el envío de las evidencias.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Buenas Noches, siguiendo con el trabajo,  se solicita al personal de la Coordinación Plataforma Prepago 
+JOSE GRANEZ
+(04243130942) ejecutar las siguientes actividades:
 
-Buenas Noches
+	Validacion de actualizacion de SDP.
+
+Quedo a la espera de sus comentarios y el envío de las evidencias.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Buenos Días
 
 Se le da Fin al siguiente Trabajo
 
 
  Ticket 
- CDC# 46546546546
+ CDC# 3900021163
 
 Nombre del Trabajo:
 
- Puebas controladas de afiliación automática del servicio conecta full madres (Promocion Madres 2024)  y servicio PCRF Whatsapp gratis a nivel del aplicativo GUI- RTB.   
+ AJUSTE DE TARIFA MEGA PLUS 8
+(PREPAGO NATURAL)
+  RTB-SAW   
 
  Resultado
 
@@ -52,7 +71,9 @@ Nombre del Trabajo:
  OK
 
  Justificación:
- Se notifica que se realizaron de manera exitosa todas las actividades reflajadas en la For12d, logrando así la correcta ejecución del trabajo Puebas controladas de afiliación automática del servicio conecta full madres (Promocion Madres 2024)  y servicio PCRF Whatsapp gratis a nivel del aplicativo GUI- RTB.
+ Se notifica que se realizaron de manera exitosa todas las actividades reflajadas en la For12d, logrando así la correcta ejecución del trabajo AJUSTE DE TARIFA MEGA PLUS 8
+(PREPAGO NATURAL)
+  RTB-SAW
 
 Responsable de Trabajo:
 

@@ -6,6 +6,7 @@ def redactorFor12dActividadesPrevias(archivo,cdc):
     # Función para obtener el saludo según la hora
     def get_saludo(actividad):
         #print(actividad["FECHA Y HORA DE INICIO"])
+        print(type(actividad["FECHA Y HORA DE INICIO"]))
         hora = int(((str(actividad["FECHA Y HORA DE INICIO"]))[11:])[:2])
         if hora >= 6 and hora <= 11:
             return "Buenos Días"
