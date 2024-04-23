@@ -4,6 +4,7 @@ import random
 def redactorFor12dNormal(archivo,cdc):
     
     [actividades, generales] = for12Data(archivo)
+
     horaInicio = str(actividades[0]["FECHA Y HORA DE INICIO"])[11:]
 
     # Función para obtener el saludo según la hora

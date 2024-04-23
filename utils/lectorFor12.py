@@ -88,7 +88,7 @@ def for12Data(archivo):
 
         # Devolver las listas de datos y el diccionario de datos generales
 
-
+        print(eliminar_vacios(rows))
         return [eliminar_vacios(rows), datosGenerales]
     except:
         # Manejar el caso en que el archivo no se encuentre
@@ -148,7 +148,7 @@ def conActividadesPrevias(archivo):
                 contador+=1
             rows.append(diccionario)
         numCelda += 1
-    actividadesVentana(numFila, libro, nameCampos)
+    ventanaActividade=actividadesVentana(numFila, libro, nameCampos)
     # Seleccionar la hoja 'Datos Generales'
     hoja = libro['Datos Generales']
     numCelda = 1
@@ -171,7 +171,7 @@ def conActividadesPrevias(archivo):
     # Devolver las listas de datos y el diccionario de datos generales
 
 
-    return [eliminar_vacios(rows), datosGenerales]
+    return [ventanaActividade,eliminar_vacios(rows), datosGenerales]
 
 def eliminar_vacios(rows):
     formateados=[]

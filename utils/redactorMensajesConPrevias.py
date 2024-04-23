@@ -1,7 +1,8 @@
 from lectorFor12 import *
 import random
 def redactorFor12dActividadesPrevias(archivo,cdc):
-    [actividades, generales] = conActividadesPrevias(archivo)
+    [actividades,previas, generales] = conActividadesPrevias(archivo)
+    actividades = actividades[0]
     horaInicio = str(actividades[0]["FECHA Y HORA DE INICIO"])[11:]
     # Función para obtener el saludo según la hora
     def get_saludo(actividad):
