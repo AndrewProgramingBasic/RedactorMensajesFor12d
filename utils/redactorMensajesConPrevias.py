@@ -1,19 +1,19 @@
 from lectorFor12 import *
 import random
 def redactorFor12dActividadesPrevias(archivo,cdc):
-    [actividades,previas, generales] = conActividadesPrevias(archivo)
-    actividades = actividades[0]
-    horaInicio = str(actividades[0]["FECHA Y HORA DE INICIO"])[11:]
-    # Función para obtener el saludo según la hora
-    def get_saludo(actividad):
-        #print(actividad["FECHA Y HORA DE INICIO"])
-        print(type(actividad["FECHA Y HORA DE INICIO"]))
-        hora = int(((str(actividad["FECHA Y HORA DE INICIO"]))[11:])[:2])
-        if hora >= 6 and hora <= 11:
-            return "Buenos Días"
-        elif hora >= 12 and hora <= 17:
-            return "Buenas Tardes"
-        return "Buenas Noches"
+    try:
+        [actividades,previas, generales] = conActividadesPrevias(archivo)
+        horaInicio = str(actividades[0]["FECHA Y HORA DE INICIO"])[11:]
+        # Función para obtener el saludo según la hora
+        def get_saludo(actividad):
+            hora = int(((str(actividad["FECHA Y HORA DE INICIO"]))[11:])[:2])
+            if hora >= 6 and hora <= 11:
+                return "Buenos Días"
+            elif hora >= 12 and hora <= 17: 
+                return "Buenas Tardes"
+            return "Buenas Noches"
+    except:
+        pass
 
     def notificacionFinal():
         return "Se notifica que se realizaron de manera exitosa todas las actividades reflajadas en la For12d, logrando así la correcta ejecución del trabajo " + generales['name']
@@ -70,7 +70,25 @@ def redactorFor12dActividadesPrevias(archivo,cdc):
             archivo.write(texto)
 
     # Generar todos los mensajes
-    todosLosMensajes = messageInitial
+    todosLosMensajes="ACTIVIDADES PEVIAS\n"
+    todosLosMensajes += "-" * 200
+    for i in range(len(previas)):
+        actividadesPast=previas[i -1]['RESPONSABLE']
+        actividadesNext= "asofdhafapio"
+        if ((i + 1) < len(previas)):
+            actividadesNext= previas[i +1]['RESPONSABLE']
+
+        if i >= 0 and i <= len(previas):
+            if previas[i]['RESPONSABLE'] == actividadesPast:
+                todosLosMensajes+=f"\t{previas[i]['ACTIVIDAD']}\n\n"
+            else: 
+                todosLosMensajes += messageGenerico(previas[i], get_saludo(previas[i]))
+            if(actividadesNext!=previas[i]['RESPONSABLE'] ):
+                todosLosMensajes+=f"\n{mensajeFinalRandom()}\n\n"
+                todosLosMensajes += "-" * 200
+    todosLosMensajes+="\nACTIVIDADES VENTANA\n"
+    todosLosMensajes += "-" * 200
+    todosLosMensajes += messageInitial
     for i in range(len(actividades)):
         actividadesPast=actividades[i -1]['RESPONSABLE']
         actividadesNext= "asofdhafapio"

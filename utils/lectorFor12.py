@@ -3,28 +3,31 @@ from tkinter import filedialog
 import tkinter as tk
 
 def tipoFor12d():
-    root = tk.Tk()
-    root.withdraw()
+    try:
+        root = tk.Tk()
+        root.withdraw()
 
-    # Abrir el diálogo de selección de archivo Excel
-    nombre_libro = filedialog.askopenfilename()
-    libro = openpyxl.load_workbook(nombre_libro)
-    hoja = libro['Plan de trabajo']
+        # Abrir el diálogo de selección de archivo Excel
+        nombre_libro = filedialog.askopenfilename()
+        libro = openpyxl.load_workbook(nombre_libro)
+        hoja = libro['Plan de trabajo']
 
-    numCelda = 1
+        numCelda = 1
 
-    # Iterar sobre las filas de la hoja 'Plan de trabajo'
-    for fila in hoja.iter_rows():
-        if numCelda >= 7:
-            numCelda = 0
-            # Crear un diccionario para almacenar los datos de cada fila
-            contador=1
-            for celda in fila:
-                if(contador==1 and type(celda.value)!=int):
-                    return [True,libro]
-                else:
-                    return [False,libro]
-        numCelda += 1
+        # Iterar sobre las filas de la hoja 'Plan de trabajo'
+        for fila in hoja.iter_rows():
+            if numCelda >= 7:
+                numCelda = 0
+                # Crear un diccionario para almacenar los datos de cada fila
+                contador=1
+                for celda in fila:
+                    if(contador==1 and type(celda.value)!=int):
+                        return [True,libro]
+                    else:
+                        return [False,libro]
+            numCelda += 1
+    except:
+        pass
 
 def for12Data(archivo):
 
@@ -88,7 +91,6 @@ def for12Data(archivo):
 
         # Devolver las listas de datos y el diccionario de datos generales
 
-        print(eliminar_vacios(rows))
         return [eliminar_vacios(rows), datosGenerales]
     except:
         # Manejar el caso en que el archivo no se encuentre
@@ -213,4 +215,4 @@ def actividadesVentana(numFila, archivo, nameCampos):
     # Devolver las listas de datos y el diccionario de datos generales
 
 
-    return [eliminar_vacios(rows)]
+    return eliminar_vacios(rows)
