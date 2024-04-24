@@ -1,7 +1,7 @@
 import openpyxl
 from tkinter import filedialog
 import tkinter as tk
-
+import random
 def tipoFor12d():
     try:
         root = tk.Tk()
@@ -216,3 +216,36 @@ def actividadesVentana(numFila, archivo, nameCampos):
 
 
     return eliminar_vacios(rows)
+def mensajeFinalRandom():
+    messages = ["Agradezco sus comentarios y solicito el envío de las evidencias.",
+                "Quedo atento a sus comentarios y a la recepción de las evidencias.",
+                "Estaré pendiente de sus comentarios y del envío de las evidencias.",
+                "Esperaré su pronta respuesta con sus comentarios y las evidencias.",
+                "Quedo a la espera de sus comentarios y el envío de las evidencias.",
+                "Me encuentro atento a sus comentarios y al envío de las evidencias.",
+                "Agradezco de antemano sus comentarios y el envío de las evidencias."]
+    return messages[random.randint(0, len(messages) - 1)]
+
+
+# Función para obtener un mensaje de continuidad aleatorio
+def mensajeContinuidadRandom():
+    messages = ["dando continuidad con la For12D,",
+                "continuando con el trabajo,",
+                "siguiendo con las actividades, ",
+                "prosiguiendo con lo estipulado en la For12D, ",
+                "prosiguiendo con el trabajo, ",
+                "siguiendo con el trabajo, ",
+                "prosiguiendo con las actividades, "]
+    return messages[random.randint(0, len(messages) - 1)]
+
+def mensajeFinActividades():
+    menssages = ["Se confirma la ejecución exitosa de todas las actividades especificadas en la For12d: ",
+                "Se notifica que todas las actividades detalladas en la For12d han sido realizadas de manera efectiva: ",
+                "Se valida la correcta ejecución de todas las actividades descritas en la For12d: ",
+                "Se corrobora la ejecución satisfactoria de todas las actividades definidas en la For12d: ",
+                "Se confirma que se han ejecutado todas las acciones detalladas en la For12d: ",
+                "Se valida la correcta ejecución de todas las actividades mencionadas en la For12d: ",
+                "Se confirma la ejecución efectiva de todas las actividades delineadas en la For12d: "]
+    return menssages[random.randint(0, len(menssages) - 1)]
+
+    

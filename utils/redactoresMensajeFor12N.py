@@ -16,8 +16,9 @@ def redactorFor12dNormal(archivo,cdc):
             return "Buenas Tardes"
         return "Buenas Noches"
 
+    
     def notificacionFinal():
-        return "Se notifica que se realizaron de manera exitosa todas las actividades reflajadas en la For12d, logrando así la correcta ejecución del trabajo " + generales['name']
+        return mensajeFinActividades() + generales['name']
 
     horaFin = str(actividades[-1]["FECHA Y HORA DE INICIO"])[11:]
 
@@ -38,27 +39,6 @@ def redactorFor12dNormal(archivo,cdc):
             texto_modificado = texto
         return texto_modificado
 
-    # Función para obtener un mensaje final aleatorio
-    def mensajeFinalRandom():
-        messages = ["Agradezco sus comentarios y solicito el envío de las evidencias.",
-                    "Quedo atento a sus comentarios y a la recepción de las evidencias.",
-                    "Estaré pendiente de sus comentarios y del envío de las evidencias.",
-                    "Esperaré su pronta respuesta con sus comentarios y las evidencias.",
-                    "Quedo a la espera de sus comentarios y el envío de las evidencias.",
-                    "Me encuentro atento a sus comentarios y al envío de las evidencias.",
-                    "Agradezco de antemano sus comentarios y el envío de las evidencias."]
-        return messages[random.randint(0, len(messages) - 1)]
-
-    # Función para obtener un mensaje de continuidad aleatorio
-    def mensajeContinuidadRandom():
-        messages = ["dando continuidad con la For12D,",
-                    "continuando con el trabajo,",
-                    "siguiendo con las actividades, ",
-                    "prosiguiendo con lo estipulado en la For12D, ",
-                    "prosiguiendo con el trabajo, ",
-                    "siguiendo con el trabajo, ",
-                    "prosiguiendo con las actividades, "]
-        return messages[random.randint(0, len(messages) - 1)]
 
     # Función para generar un mensaje genérico
     def messageGenerico(actividad, saludo):

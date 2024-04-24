@@ -4,7 +4,7 @@ Se le da Inicio al siguiente Trabajo
 
 
 Ticket 
- CDC# 54654654
+ CDC# 888
 
 Nombre del Trabajo:
 
@@ -46,7 +46,7 @@ Se le da Fin al siguiente Trabajo
 
 
  Ticket 
- CDC# 54654654
+ CDC# 888
 
 Nombre del Trabajo:
 
@@ -58,7 +58,7 @@ Nombre del Trabajo:
  OK
 
  Justificación:
- Se notifica que se realizaron de manera exitosa todas las actividades reflajadas en la For12d, logrando así la correcta ejecución del trabajo Extracción y reemplazo de discos en la Rack de la caja de almacenamiento de la SDP6 - Localidad Fajardo
+ Se confirma la ejecución exitosa de todas las actividades especificadas en la For12d: Extracción y reemplazo de discos en la Rack de la caja de almacenamiento de la SDP6 - Localidad Fajardo
 
 Responsable de Trabajo:
 
