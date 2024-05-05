@@ -47,7 +47,7 @@ def redactorFor12dActividadesPrevias(archivo,cdc):
 
     # Generar todos los mensajes
     todosLosMensajes="ACTIVIDADES PEVIAS\n"
-    todosLosMensajes += "-" * 200
+    todosLosMensajes += "-" * 200+"\n\n\n"
     for i in range(len(previas)):
         actividadesPast=previas[i -1]['RESPONSABLE']
         actividadesNext= "asofdhafapio"
@@ -63,8 +63,9 @@ def redactorFor12dActividadesPrevias(archivo,cdc):
                 todosLosMensajes+=f"\n{mensajeFinalRandom()}\n\n"
                 todosLosMensajes += "-" * 200
     todosLosMensajes+="\nACTIVIDADES VENTANA\n"
-    todosLosMensajes += "-" * 200
+    todosLosMensajes += "-" * 200+"\n"
     todosLosMensajes += messageInitial
+    todosLosMensajes += "-" * 200+"\n\n\n"
     for i in range(len(actividades)):
         actividadesPast=actividades[i -1]['RESPONSABLE']
         actividadesNext= "asofdhafapio"
