@@ -2,27 +2,31 @@ ACTIVIDADES PEVIAS
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-	Respaldar las tablas (PRN PRODUCCION)
 
 
+Buenas Noches, continuando con el trabajo, se solicita al personal de la Coordinación de Aprovisionamiento // Ledinyer Tovar//04166338092  ///// Proveedor krek technology C.A(Mauricio Gonzalez) ejecutar las siguientes actividades:
 
-Esperaré su pronta respuesta con sus comentarios y las evidencias.
+	Respaldar archivo saAuditFilter.jsp
+	Respaldar templates de aprovisionamiento
+
+
+Quedo a la espera de sus comentarios y el envío de las evidencias.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ACTIVIDADES VENTANA
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Buenos Días
+Buenas Noches
 
 Se le da Inicio al siguiente Trabajo
 
 
 Ticket 
- CDC# 3434343
+ CDC# 3243432434
 
 Nombre del Trabajo:
 
- Desactivación de servicios no disponibles (obsoletos) a los clientes prepagos en la Base de Datos (PRN)  
-Hora de inicio: 10:35:00
+ Actualización de Suspensiones Parciales y Totales, Reactivaciones Totales dentro del activador HPSA.  C.C. Recreo Torre Sur Movilnet Piso 2  
+Hora de inicio: 22:00:00
 
  Servicios / Aplicaciones Afectadas
 
@@ -30,7 +34,7 @@ Hora de inicio: 10:35:00
  [LLENE AQUI LAS APLICACIONES AFECTADAS]
 
  Justificación:
- Se requiere realizar la actualizacion en tablas de PRN para la No visualización de servicios no disponibles (Obsoletos); a través de los aplicativos GUI RTB , OVAM y Tu Movilnet.
+ Realizar las actualizaciones de Suspenciones Parcial y Total y Reactivacion Totales en el  Activador y ejecutar pruebas entre el HPSA Activador y el HLR de Huawei. (UDM).
 
 Responsable de Trabajo:
 
@@ -38,55 +42,46 @@ Responsable de Trabajo:
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Buenas Noches, siguiendo con el trabajo,  se solicita al personal de la Coordinación de Implementacion y Estabilizacion/ Hebert García   // 04142044513 ejecutar las siguientes actividades:
 
+	Se notifica que se pueden comenzar los cambios en el Aprovisionador
 
-
-Buenos Días, prosiguiendo con las actividades,  se solicita al personal de la Coord. de Procesos de Negocio (CPN)  //Edgar Vásquez//04123972094 ejecutar las siguientes actividades:
-
-	Procesos del Negocio ejecuta los pasos para la ventana:  Desactivacion de servicios no disponibles (obsoletos) a los clientes prepagos en la Base de Datos (PRN)
 
 Quedo a la espera de sus comentarios y el envío de las evidencias.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Buenos Días, prosiguiendo con el trabajo,  se solicita al personal de la Coord. de Procesos de Negocio (CPN) // Edgar Vásquez//04123972094 ejecutar las siguientes actividades:
+Buenas Noches, dando continuidad con la For12D, se solicita al personal de la Coordinación de Aprovisionamiento // Ledinyer Tovar//04166338092  ///// Proveedor krek technology C.A(Mauricio Gonzalez) ejecutar las siguientes actividades:
 
-	Procesos del Negocio Notifica a Coord. Implementación  y Estabilización que se ejecuto exitosamente los pasos de la ventana :  Desactivacion de servicios no disponibles (obsoletos) a los clientes prepagos en la Base de Datos (PRN)
+	Subir archivo saAuditFilter.jsp
+	Subir templates de aprovisionamiento
 
-Agradezco de antemano sus comentarios y el envío de las evidencias.
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Buenos Días, dando continuidad con la For12D, se solicita al personal de la Coord. Implementación  y Estabilización  // Carlos Mendoza   // 04242310269 ejecutar las siguientes actividades:
-
-	Inicio de Pruebas #1 (Consulta de servicios no disponibles (obsoletos) para verificar el cambio)
-	Fin de Pruebas #1. Se notifica a los involucrados resultados de las pruebas
-
-
-Agradezco sus comentarios y solicito el envío de las evidencias.
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Buenos Días, dando continuidad con la For12D, se solicita al personal de la Coord. Implementación  y Estabilización  //Carlos Mendoza   // 04242310269 ejecutar las siguientes actividades:
-
-	Llamar al COR y VPTI Notificando fin de Ventana
 
 Quedo a la espera de sus comentarios y el envío de las evidencias.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Buenas Noches, prosiguiendo con las actividades,  se solicita al personal de la Coordinación de Aprovisionamiento // Ledinyer Tovar//04166338092  ///// Proveedor krek technology C.A(Mauricio Gonzalez)///////////Registro de Señalización Suscriptores// Barbara Hernandez //04169280909 ejecutar las siguientes actividades:
 
-Buenos Días
+	Realizar pruebas de Suspensiones Parciales y Totales, Reactivaciones Totales de suscriptores
+
+Esperaré su pronta respuesta con sus comentarios y las evidencias.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Buenas Noches
 
 Se le da Fin al siguiente Trabajo
 
 
  Ticket 
- CDC# 3434343
+ CDC# 3243432434
 
 Nombre del Trabajo:
 
- Desactivación de servicios no disponibles (obsoletos) a los clientes prepagos en la Base de Datos (PRN)   
+ Actualización de Suspensiones Parciales y Totales, Reactivaciones Totales dentro del activador HPSA.  C.C. Recreo Torre Sur Movilnet Piso 2   
 
  Resultado
 
@@ -94,7 +89,7 @@ Nombre del Trabajo:
  OK
 
  Justificación:
- Se confirma la ejecución exitosa de todas las actividades especificadas en la For12d: Desactivación de servicios no disponibles (obsoletos) a los clientes prepagos en la Base de Datos (PRN)
+ Se corrobora la ejecución satisfactoria de todas las actividades definidas en la For12d: Actualización de Suspensiones Parciales y Totales, Reactivaciones Totales dentro del activador HPSA.  C.C. Recreo Torre Sur Movilnet Piso 2
 
 Responsable de Trabajo:
 
