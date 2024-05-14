@@ -47,7 +47,7 @@ def redactorFor12dActividadesPrevias(archivo,cdc):
 
     # Generar todos los mensajes
     todosLosMensajes="ACTIVIDADES PEVIAS\n"
-    todosLosMensajes += "-" * 200+"\n\n\n"
+    todosLosMensajes += "-" * 200
     for i in range(len(previas)):
         actividadesPast=previas[i -1]['RESPONSABLE']
         actividadesNext= "asofdhafapio"
@@ -55,9 +55,7 @@ def redactorFor12dActividadesPrevias(archivo,cdc):
             actividadesNext= previas[i +1]['RESPONSABLE']
 
         if i >= 0 and i <= len(previas):
-            if(i==0):
-                todosLosMensajes += messageGenerico(previas[i], get_saludo(previas[i]))
-            elif previas[i]['RESPONSABLE'] == actividadesPast:
+            if previas[i]['RESPONSABLE'] == actividadesPast:
                 todosLosMensajes+=f"\t{previas[i]['ACTIVIDAD']}\n\n"
             else: 
                 todosLosMensajes += messageGenerico(previas[i], get_saludo(previas[i]))
@@ -65,14 +63,14 @@ def redactorFor12dActividadesPrevias(archivo,cdc):
                 todosLosMensajes+=f"\n{mensajeFinalRandom()}\n\n"
                 todosLosMensajes += "-" * 200
     todosLosMensajes+="\nACTIVIDADES VENTANA\n"
-    todosLosMensajes += "-" * 200+"\n"
+    todosLosMensajes += "-" * 200
     todosLosMensajes += messageInitial
-    todosLosMensajes += "-" * 200+"\n\n\n"
     for i in range(len(actividades)):
         actividadesPast=actividades[i -1]['RESPONSABLE']
         actividadesNext= "asofdhafapio"
         if ((i +1) < len(actividades)):
             actividadesNext= actividades[i +1]['RESPONSABLE']
+
         if i > 0 and i < len(actividades):
             if actividades[i]['RESPONSABLE'] == actividadesPast:
                 todosLosMensajes+=f"\t{actividades[i]['ACTIVIDAD']}\n\n"

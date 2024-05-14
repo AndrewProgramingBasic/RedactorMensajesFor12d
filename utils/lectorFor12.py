@@ -171,6 +171,8 @@ def conActividadesPrevias(archivo):
         acum1 += 1
 
     # Devolver las listas de datos y el diccionario de datos generales
+
+
     return [ventanaActividade,eliminar_vacios(rows), datosGenerales]
 
 def eliminar_vacios(rows):
@@ -211,7 +213,7 @@ def actividadesVentana(numFila, archivo, nameCampos):
 
 
     # Devolver las listas de datos y el diccionario de datos generales
-    print(len(rows))
+
 
     return eliminar_vacios(rows)
 def mensajeFinalRandom():
