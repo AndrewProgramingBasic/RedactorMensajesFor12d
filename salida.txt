@@ -1,32 +1,15 @@
-ACTIVIDADES PEVIAS
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-Buenas Noches, continuando con el trabajo, se solicita al personal de la Coordinación de Aprovisionamiento // Ledinyer Tovar//04166338092  ///// Proveedor krek technology C.A(Mauricio Gonzalez) ejecutar las siguientes actividades:
-
-	Respaldar archivo saAuditFilter.jsp
-	Respaldar templates de aprovisionamiento
-
-
-Quedo a la espera de sus comentarios y el envío de las evidencias.
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-ACTIVIDADES VENTANA
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Buenas Noches
+Buenas Tardes
 
 Se le da Inicio al siguiente Trabajo
 
 
 Ticket 
- CDC# 3243432434
+ CDC# 98778987998
 
 Nombre del Trabajo:
 
- Actualización de Suspensiones Parciales y Totales, Reactivaciones Totales dentro del activador HPSA.  C.C. Recreo Torre Sur Movilnet Piso 2  
-Hora de inicio: 22:00:00
+ Revisión y encendido de equipo DSLU IBM Blade Center AYACUCHO (Barquisimeto)  
+Hora de inicio: 16:00:00
 
  Servicios / Aplicaciones Afectadas
 
@@ -34,54 +17,31 @@ Hora de inicio: 22:00:00
  [LLENE AQUI LAS APLICACIONES AFECTADAS]
 
  Justificación:
- Realizar las actualizaciones de Suspenciones Parcial y Total y Reactivacion Totales en el  Activador y ejecutar pruebas entre el HPSA Activador y el HLR de Huawei. (UDM).
+ Se requiere realizar la validacion del equipo DSLU IBM Blade Center de ayacucho (Barquisimeto), esto motivado a que el mismo se encuentra DOWN y se requiere de su operatividad.
 
 Responsable de Trabajo:
 
  [INGRESE AQUI LOS DATOS DEL EJECUTANTE]
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Buenas Noches, siguiendo con el trabajo,  se solicita al personal de la Coordinación de Implementacion y Estabilizacion/ Hebert García   // 04142044513 ejecutar las siguientes actividades:
-
-	Se notifica que se pueden comenzar los cambios en el Aprovisionador
 
 
-Quedo a la espera de sus comentarios y el envío de las evidencias.
+Buenas Tardes, continuando con el trabajo, se solicita al personal de la Coordinacion de Plataforma Prepago  (Ejecutante: Kleber Cabezas - Tlf: 412-8234044) ejecutar las siguientes actividades:
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Buenas Noches, dando continuidad con la For12D, se solicita al personal de la Coordinación de Aprovisionamiento // Ledinyer Tovar//04166338092  ///// Proveedor krek technology C.A(Mauricio Gonzalez) ejecutar las siguientes actividades:
-
-	Subir archivo saAuditFilter.jsp
-	Subir templates de aprovisionamiento
-
-
-Quedo a la espera de sus comentarios y el envío de las evidencias.
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Buenas Noches, prosiguiendo con las actividades,  se solicita al personal de la Coordinación de Aprovisionamiento // Ledinyer Tovar//04166338092  ///// Proveedor krek technology C.A(Mauricio Gonzalez)///////////Registro de Señalización Suscriptores// Barbara Hernandez //04169280909 ejecutar las siguientes actividades:
-
-	Realizar pruebas de Suspensiones Parciales y Totales, Reactivaciones Totales de suscriptores
-
-Esperaré su pronta respuesta con sus comentarios y las evidencias.
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Se procede a realizar la verificación del los equipos DSLU IBM Blade Center
 
 
 
-Buenas Noches
+Buenas Tardes
 
 Se le da Fin al siguiente Trabajo
 
 
  Ticket 
- CDC# 3243432434
+ CDC# 98778987998
 
 Nombre del Trabajo:
 
- Actualización de Suspensiones Parciales y Totales, Reactivaciones Totales dentro del activador HPSA.  C.C. Recreo Torre Sur Movilnet Piso 2   
+ Revisión y encendido de equipo DSLU IBM Blade Center AYACUCHO (Barquisimeto)   
 
  Resultado
 
@@ -89,7 +49,7 @@ Nombre del Trabajo:
  OK
 
  Justificación:
- Se corrobora la ejecución satisfactoria de todas las actividades definidas en la For12d: Actualización de Suspensiones Parciales y Totales, Reactivaciones Totales dentro del activador HPSA.  C.C. Recreo Torre Sur Movilnet Piso 2
+ Se confirma la ejecución exitosa de todas las actividades especificadas en la For12d: Revisión y encendido de equipo DSLU IBM Blade Center AYACUCHO (Barquisimeto)
 
 Responsable de Trabajo:
 
