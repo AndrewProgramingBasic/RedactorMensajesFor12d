@@ -1,0 +1,79 @@
+Buenas Noches
+
+Se da Inicio al siguiente Trabajo
+
+
+Ticket 
+*CDC# 3900029271*
+
+*Nombre del Trabajo:*
+
+  Inclusión del Código Corto 2467 Proveedor TEAM TECHNOLOGY 2020 C.A. ( VPTI-202407139)  
+*Hora de inicio:* 22:00:00
+
+*Servicios / Aplicaciones Afectadas*
+
+
+ N/A
+
+*Justificación:*
+ A petición del funcional se debe gestionar Inclusión del  Código Corto 2467 (TEAM TECHNOLOGY 2020 C.A.) 
+
+*Responsable de Trabajo:*
+
+ [INGRESE AQUI LOS DATOS DEL EJECUTANTE]
+
+
+
+Buenas Noches, prosiguiendo con lo estipulado en la For12D,  se solicita al personal de la Jesus Ventura (04142141119) - Coordinación de Procesos de Tasación ejecutar las siguientes actividades:
+
+	Inclusión del Short Code en Facturador GSM (SAW)
+
+
+Esperaré su pronta respuesta con sus comentarios y las evidencias.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Noches, dando continuidad con la For12D, se solicita al personal de la Kleber Cabezas (04128234044) - Coordinación Plataforma Prepago ejecutar las siguientes actividades:
+
+	Verificación de versión en las SDP's de RTB
+
+Agradezco de antemano sus comentarios y el envío de las evidencias.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Noches, siguiendo con el trabajo,  se solicita al personal de la Alexander Velasquez (04142417806) Coordinación de Mensajería ejecutar las siguientes actividades:
+
+	Inclusión del Short Code en las Reglas ADT de ambos Centros de Mensajeria
+	Inclusión del Short Code en las Base de Datos (TOLLDATO) de ambos Centros de Mensajeria
+
+
+Esperaré su pronta respuesta con sus comentarios y las evidencias.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Buenas Noches
+
+Se da Fin al siguiente Trabajo
+
+
+ Ticket 
+*CDC# 3900029271*
+
+*Nombre del Trabajo:*
+
+  Inclusión del Código Corto 2467 Proveedor TEAM TECHNOLOGY 2020 C.A. ( VPTI-202407139)   
+
+*Resultado:*
+
+
+OK
+
+*Justificación:*
+Se valida la correcta ejecución de todas las actividades descritas en la For12d:  Inclusión del Código Corto 2467 Proveedor TEAM TECHNOLOGY 2020 C.A. ( VPTI-202407139)
+
+*Responsable de Trabajo:*
+
+ [INGRESE AQUI LOS DATOS DEL EJECUTANTE]
+
