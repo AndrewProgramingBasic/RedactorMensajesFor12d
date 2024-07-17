@@ -82,7 +82,8 @@ def redactorFor12dActividadesPrevias(archivo,cdc):
     todosLosMensajes += messageFinal
 
     # Guardar los mensajes en un archivo de texto
-    guardar_en_txt(todosLosMensajes, "../CDC/"+cdc+".txt")
+    nameDocument=cdc+"  "+generales['name']+".txt"
+    guardar_en_txt(todosLosMensajes, "../CDC/"+nameDocument)
     guardar_en_txt(todosLosMensajes, "../salida.txt")
 
     print("¡Texto guardado en el archivo "+cdc+".txt en la carpeta de CDC y en el archivo salida!")
