@@ -20,14 +20,11 @@ def redactorFor12dNormal(archivo,cdc):
     def notificacionFinal():
         return mensajeFinActividades() + generales['name']
 
-    horaFin = str(actividades[-1]["FECHA Y HORA DE INICIO"])[11:]
-
     # Mensaje inicial del trabajo
-    messageInitial = f"{get_saludo(actividades[0])}\n\nSe le da Inicio al siguiente Trabajo\n\n\nTicket \n CDC# {cdc}\n\nNombre del Trabajo:\n\n {generales['name']}  \nHora de inicio: {horaInicio}\n\n Servicios / Aplicaciones Afectadas\n\n\n [LLENE AQUI LAS APLICACIONES AFECTADAS]\n\n Justificación:\n {generales['justify']}\n\nResponsable de Trabajo:\n\n [INGRESE AQUI LOS DATOS DEL EJECUTANTE]\n\n"
+    messageInitial = f"{get_saludo(actividades[0])}\n\nSe da Inicio al siguiente Trabajo\n\n\nTicket \n*CDC# {cdc}*\n\n*Nombre del Trabajo:*\n\n {generales['name']}  \n*Hora de inicio:* {horaInicio}\n\n*Servicios / Aplicaciones Afectadas*\n\n\n N/A\n\n*Justificación:*\n {generales['justify']}\n\n*Responsable de Trabajo:*\n\n [INGRESE AQUI LOS DATOS DEL EJECUTANTE]\n\n"
 
     # Mensaje final del trabajo
-    messageFinal = f"\n\n\n{get_saludo(actividades[-1])}\n\nSe le da Fin al siguiente Trabajo\n\n\n Ticket \n CDC# {cdc}\n\nNombre del Trabajo:\n\n {generales['name']}   \n\n Resultado\n\n\n OK\n\n Justificación:\n {notificacionFinal()}\n\nResponsable de Trabajo:\n\n [INGRESE AQUI LOS DATOS DEL EJECUTANTE]\n\n"
-
+    messageFinal = f"\n\n\n{get_saludo(actividades[-1])}\n\nSe da Fin al siguiente Trabajo\n\n\n Ticket \n*CDC# {cdc}*\n\n*Nombre del Trabajo:*\n\n {generales['name']}   \n\n*Resultado:*\n\n\nOK\n\n*Justificación:*\n{notificacionFinal()}\n\n*Responsable de Trabajo:*\n\n [INGRESE AQUI LOS DATOS DEL EJECUTANTE]\n\n"
 
         
     # Función para eliminar texto después de una frase específica
@@ -69,6 +66,6 @@ def redactorFor12dNormal(archivo,cdc):
     todosLosMensajes += messageFinal
 
     # Guardar los mensajes en un archivo de texto
-    guardar_en_txt(todosLosMensajes, "../salida.txt")
+    guardar_en_txt(todosLosMensajes, "../"+cdc+".txt")
 
-    print("¡Texto guardado en el archivo salida.txt!")
+    print("¡Texto guardado en el archivo "+cdc+".txt!")
