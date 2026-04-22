@@ -1,0 +1,77 @@
+Buenas Noches
+
+Se da Inicio al siguiente Trabajo
+
+
+Ticket 
+*CDC# 3900079384*
+
+*Nombre del Trabajo:*
+
+AJUSTE DE TARIFAS EN MINUTOS LDI ABRIL - 2026 (SERVICIOS LDI)(PREPAGO) (SAW) RTB
+
+*Hora de inicio:* 23:00:00
+
+*Servicios / Aplicaciones Afectadas*
+
+
+ N/A
+
+*Justificación:*
+Siguiendo lineamientos de la Vicepresidencia de Mercadeo, se requiere realizar la actualización de  Tarifas en minutos LDI Prepago para el mes de ABRIL 2026.
+
+*Responsable de Trabajo:*
+
+Coordinación Procesos de Tasación 
+Jesús Ventura
+(4166242880)
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Noches, prosiguiendo con lo estipulado en la For12D,  se solicita al personal de la Coordinación Procesos de Tasación ejecutar las siguientes actividades:
+
+	Configuración de las tarifas en SAW.	
+        Verificar que los cambios fueron realizado correctamente.	
+ 	
+Agradezco de antemano sus comentarios y el envío de las evidencias.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Noches, siguiendo con las actividades,  se solicita al personal de la Coordinación Plataforma Prepago ejecutar las siguientes actividades:
+
+
+        Validacion de actualizacion de SDP.	
+
+
+Esperaré su pronta respuesta con sus comentarios y las evidencias.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Buenas Noches
+
+Se da Fin al siguiente Trabajo
+
+
+ Ticket 
+*CDC# 3900079384*
+
+*Nombre del Trabajo:*
+
+AJUSTE DE TARIFAS EN MINUTOS LDI ABRIL - 2026 (SERVICIOS LDI)(PREPAGO) (SAW) RTB
+
+*Resultado:*
+
+
+OK
+
+*Justificación:*
+Se notifica la ejecución exitosa de todas las actividades especificadas en la For12d: AJUSTE DE TARIFAS EN MINUTOS LDI ABRIL - 2026 (SERVICIOS LDI)(PREPAGO) (SAW) RTB
+
+*Responsable de Trabajo:*
+
+Coordinación Procesos de Tasación 
+Jesús Ventura
+(4166242880)

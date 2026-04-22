@@ -2,248 +2,191 @@ import openpyxl
 from tkinter import filedialog
 import tkinter as tk
 import random
+from datetime import datetime
+
+def limpiar_campos(lista_campos):
+    """Filtra y elimina los valores None de la lista de encabezados"""
+    return [campo for campo in lista_campos if campo is not None]
+
 def tipoFor12d():
     try:
         root = tk.Tk()
         root.withdraw()
-
-        # Abrir el diálogo de selección de archivo Excel
         nombre_libro = filedialog.askopenfilename()
-        libro = openpyxl.load_workbook(nombre_libro)
+        if not nombre_libro: return [False, None]
+        
+        libro = openpyxl.load_workbook(nombre_libro, data_only=True)
         hoja = libro['Plan de trabajo']
 
         numCelda = 1
-
-        # Iterar sobre las filas de la hoja 'Plan de trabajo'
         for fila in hoja.iter_rows():
             if numCelda >= 7:
-                numCelda = 0
-                # Crear un diccionario para almacenar los datos de cada fila
-                contador=1
-                for celda in fila:
-                    if(contador==1 and type(celda.value)!=int):
-                        return [True,libro]
-                    else:
-                        return [False,libro]
+                # Si la primera celda NO es un entero (ej. es un string o None), asumimos formato especial
+                if not isinstance(fila[0].value, int):
+                    return [True, libro]
+                else:
+                    return [False, libro]
             numCelda += 1
     except:
-        pass
+        return [False, None]
 
 def for12Data(archivo):
-
-
-    # Lista para almacenar los nombres de los campos
+    """Lectura estándar del FOR12 sin distinción de previas/ventana"""
     nameCampos = []
-    # Lista para almacenar los datos de las filas
     rows = []
-    # Diccionario para almacenar los datos generales
     datosGenerales = {}
 
     try:
-        # Cargar el libro de trabajo Excel
         libro = archivo
-        # Seleccionar la hoja 'Plan de trabajo'
         hoja = libro['Plan de trabajo']
-        numCelda = 1
+        numFila = 1
 
-        # Iterar sobre las filas de la hoja 'Plan de trabajo'
         for fila in hoja.iter_rows():
-            if numCelda == 5:
-                # Almacenar los nombres de los campos en la lista nameCampos
-                for celda in fila:
-                    nameCampos.append(celda.value)
-            elif numCelda >= 7:
-                numCelda = 0
+            if numFila == 5:
+                # Obtenemos y LIMPIAMOS los campos inmediatamente
+                campos_crudos = [celda.value for celda in fila]
+                nameCampos = limpiar_campos(campos_crudos)
+            
+            elif numFila >= 7:
+                if not isinstance(fila[0].value, int):
+                    numFila += 1
+                    continue
+                
                 diccionario = {}
-                # Crear un diccionario para almacenar los datos de cada fila
-                contador=1
-                for celda in fila:
-                    if(contador==1 and celda.value==None):
-                        
-                        numCelda+=1
-                        break
-                    if(contador==1):
-                        pass
-                    diccionario[nameCampos[numCelda]] = celda.value
-                    numCelda += 1
-                    contador+=1
-                rows.append(diccionario)
-            numCelda += 1
+                # Filtramos las celdas de la fila que coinciden con columnas con nombre
+                celdas_validas = [celda.value for i, celda in enumerate(fila) if i < len(campos_crudos) and campos_crudos[i] is not None]
+                
+                for i, valor in enumerate(celdas_validas):
+                    if i < len(nameCampos):
+                        diccionario[nameCampos[i]] = valor
+                
+                if diccionario:
+                    rows.append(diccionario)
+            numFila += 1
 
-        # Seleccionar la hoja 'Datos Generales'
-        hoja = libro['Datos Generales']
-        numCelda = 1
+        hoja_gen = libro['Datos Generales']
         acum1 = 1
-
-        # Iterar sobre las filas de la hoja 'Datos Generales'
-        for fila in hoja.iter_rows():
+        for fila in hoja_gen.iter_rows():
             if acum1 == 17:
-                # Almacenar el nombre en el diccionario datosGenerales
-                for celda in fila:
-                    datosGenerales["name"] = celda.value
-                    break
+                datosGenerales["name"] = fila[0].value
             if acum1 == 20:
-                # Almacenar la justificación en el diccionario datosGenerales
-                for celda in fila:
-                    datosGenerales["justify"] = celda.value
-                    break
+                datosGenerales["justify"] = fila[0].value
             acum1 += 1
 
-        # Devolver las listas de datos y el diccionario de datos generales
-
         return [eliminar_vacios(rows), datosGenerales]
-    except:
-        # Manejar el caso en que el archivo no se encuentre
-        print(f"Error inesperado, al leer el archivo")
-        exit()
+    except Exception as e:
+        print(f"Error inesperado al leer el archivo (for12Data): {e}")
+        return [[], {}]
 
 def conActividadesPrevias(archivo):
-        # Crear una instancia de la ventana Tkinter y ocultarla
-  
-
-    # Abrir el diálogo de selección de archivo Excel
-
-    # Lista para almacenar los nombres de los campos
+    """Lectura dividida: detecta Previas y luego llama a Ventana"""
     nameCampos = []
-    # Lista para almacenar los datos de las filas
-    rows = []
-    # Diccionario para almacenar los datos generales
+    rows_previas = []
     datosGenerales = {}
-
-
-    # Cargar el libro de trabajo Excel
     libro = archivo
-    # Seleccionar la hoja 'Plan de trabajo'
     hoja = libro['Plan de trabajo']
-    numCelda = 1
+    
+    numFilaContador = 1
     breakear = False
-    numFila=1
     contBool = 0
-    # Iterar sobre las filas de la hoja 'Plan de trabajo'
+    campos_originales_con_none = []
+
     for fila in hoja.iter_rows():
-        numFila+=1
         if breakear:
             break
-        if numCelda == 5:
-            # Almacenar los nombres de los campos en la lista nameCampos
-            for celda in fila:
-                nameCampos.append(celda.value)
-        elif numCelda >= 8:
-            numCelda = 0
+        
+        if numFilaContador == 5:
+            campos_originales_con_none = [celda.value for celda in fila]
+            nameCampos = limpiar_campos(campos_originales_con_none)
+            
+        elif numFilaContador >= 8:
+            try:
+                int(fila[0].value)
+            except:
+                breakear = True
+                contBool += 1
+                break
+            if fila[0].value is None:
+                if contBool == 0:
+                    breakear = True
+                    contBool += 1
+                break
+            
             diccionario = {}
-            # Crear un diccionario para almacenar los datos de cada fila
-            contador=1
-            for celda in fila:
-                if(contador==1 and celda.value==None):
-                    numCelda+=1
-                    if contBool == 0:
-                        breakear = True
-                        contBool += 1
-                    break
-                if(contador==1):
-                    pass
-                if nameCampos[numCelda] == "FECHA Y HORA FIN":
-                    pass
-                    
-                diccionario[nameCampos[numCelda]] = celda.value
-                numCelda += 1
-                contador+=1
-            rows.append(diccionario)
-        numCelda += 1
-    ventanaActividade=actividadesVentana(numFila, libro, nameCampos)
-    # Seleccionar la hoja 'Datos Generales'
-    hoja = libro['Datos Generales']
-    numCelda = 1
+            # Extraer solo valores de celdas que tienen un encabezado real
+            valores_fila = [celda.value for i, celda in enumerate(fila) if i < len(campos_originales_con_none) and campos_originales_con_none[i] is not None]
+            
+            for i, valor in enumerate(valores_fila):
+                if i < len(nameCampos):
+                    diccionario[nameCampos[i]] = valor
+            
+            if diccionario:
+                rows_previas.append(diccionario)
+        
+        numFilaContador += 1
+    print(nameCampos)
+    # Pasamos nameCampos ya limpio y el esquema original para sincronizar la ventana
+    ventanaActividade = actividadesVentana(numFilaContador, libro, nameCampos, campos_originales_con_none)
+    
+    hoja_gen = libro['Datos Generales']
     acum1 = 1
-
-    # Iterar sobre las filas de la hoja 'Datos Generales'
-    for fila in hoja.iter_rows():
+    for fila in hoja_gen.iter_rows():
         if acum1 == 17:
-            # Almacenar el nombre en el diccionario datosGenerales
-            for celda in fila:
-                datosGenerales["name"] = celda.value
-                break
+            datosGenerales["name"] = fila[0].value
         if acum1 == 20:
-            # Almacenar la justificación en el diccionario datosGenerales
-            for celda in fila:
-                datosGenerales["justify"] = celda.value
-                break
+            datosGenerales["justify"] = fila[0].value
         acum1 += 1
 
-    # Devolver las listas de datos y el diccionario de datos generales
-    return [ventanaActividade,eliminar_vacios(rows), datosGenerales]
+    return [ventanaActividade, eliminar_vacios(rows_previas), datosGenerales]
+
+def actividadesVentana(numFilaInicio, archivo, nameCamposLimpios, camposOriginales):
+    """Lee las actividades principales después de las previas"""
+    rows_ventana = []
+    hoja = archivo['Plan de trabajo']
+    
+    for fila in hoja.iter_rows(min_row=numFilaInicio):
+        if isinstance(fila[0].value, int):
+            diccionario = {}
+            # Sincronización basada en los campos originales para saltar los Nones de la fila
+            valores_fila = [celda.value for i, celda in enumerate(fila) if i < len(camposOriginales) and camposOriginales[i] is not None]
+            
+            for i, valor in enumerate(valores_fila):
+                if i < len(nameCamposLimpios):
+                    diccionario[nameCamposLimpios[i]] = valor
+            
+            if diccionario:
+                rows_ventana.append(diccionario)
+    print("Esto es rows ventana")
+    print(rows_ventana)
+    return eliminar_vacios(rows_ventana)
 
 def eliminar_vacios(rows):
-    formateados=[]
-    for row in rows:
-        if(row):
-            formateados.append(row)
-    return(formateados)
+    return [row for row in rows if row and any(v is not None for v in row.values())]
 
-def actividadesVentana(numFila, archivo, nameCampos):
-    # Lista para almacenar los datos de las filas
-    rows = []
+# --- Mensajería ---
 
-    
-    # Seleccionar la hoja 'Plan de trabajo'
-    hoja = archivo['Plan de trabajo']
-    numCelda = 1
-    # Iterar sobre las filas de la hoja 'Plan de trabajo'
-    for fila in hoja.iter_rows():
-        if numCelda >= numFila:
-
-            numCelda = 0
-
-            diccionario = {}
-            # Crear un diccionario para almacenar los datos de cada fila
-            contador=1
-            for celda in fila:
-                if(contador==2 and celda.value==None):
-                    numCelda+=1
-                    break
-                if(contador==1):
-                    pass
-                diccionario[nameCampos[numCelda]] = celda.value
-                numCelda += 1
-                contador+=1
-            rows.append(diccionario)
-        numCelda += 1
-
-
-    # Devolver las listas de datos y el diccionario de datos generales
-    print(len(rows))
-
-    return eliminar_vacios(rows)
 def mensajeFinalRandom():
-    messages = ["Agradezco sus comentarios y solicito el envío de las evidencias.",
-                "Quedo atento a sus comentarios y a la recepción de las evidencias.",
-                "Estaré pendiente de sus comentarios y del envío de las evidencias.",
-                "Esperaré su pronta respuesta con sus comentarios y las evidencias.",
-                "Quedo a la espera de sus comentarios y el envío de las evidencias.",
-                "Me encuentro atento a sus comentarios y al envío de las evidencias.",
-                "Agradezco de antemano sus comentarios y el envío de las evidencias."]
-    return messages[random.randint(0, len(messages) - 1)]
+    messages = [
+        "Agradezco sus comentarios y solicito el envío de las evidencias.",
+        "Quedo atento a sus comentarios y a la recepción de las evidencias.",
+        "Estaré pendiente de sus comentarios y del envío de las evidencias.",
+        "Agradezco de antemano sus comentarios y el envío de las evidencias."
+    ]
+    return random.choice(messages)
 
-
-# Función para obtener un mensaje de continuidad aleatorio
 def mensajeContinuidadRandom():
-    messages = ["dando continuidad con la For12D,",
-                "continuando con el trabajo,",
-                "siguiendo con las actividades, ",
-                "prosiguiendo con lo estipulado en la For12D, ",
-                "prosiguiendo con el trabajo, ",
-                "siguiendo con el trabajo, ",
-                "prosiguiendo con las actividades, "]
-    return messages[random.randint(0, len(messages) - 1)]
+    messages = [
+        "dando continuidad con la For12D,",
+        "continuando con el trabajo,",
+        "siguiendo con las actividades,",
+        "prosiguiendo con lo estipulado en la For12D,"
+    ]
+    return random.choice(messages)
 
 def mensajeFinActividades():
-    menssages = ["Se confirma la ejecución exitosa de todas las actividades especificadas en la For12d: ",
-                "Se notifica que todas las actividades detalladas en la For12d han sido realizadas de manera efectiva: ",
-                "Se valida la correcta ejecución de todas las actividades descritas en la For12d: ",
-                "Se corrobora la ejecución satisfactoria de todas las actividades definidas en la For12d: ",
-                "Se confirma que se han ejecutado todas las acciones detalladas en la For12d: ",
-                "Se valida la correcta ejecución de todas las actividades mencionadas en la For12d: ",
-                "Se confirma la ejecución efectiva de todas las actividades delineadas en la For12d: "]
-    return menssages[random.randint(0, len(menssages) - 1)]
-
-    
+    messages = [
+        "Se confirma la ejecución exitosa de todas las actividades especificadas en la For12d: ",
+        "Se notifica que todas las actividades detalladas en la For12d han sido realizadas de manera efectiva: ",
+        "Se valida la correcta ejecución de todas las actividades descritas en la For12d: "
+    ]
+    return random.choice(messages)

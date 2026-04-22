@@ -3,7 +3,7 @@
 
 
 
-Buenas Tardes, prosiguiendo con lo estipulado en la For12D, se solicita al personal de la Cesar Ávila Telf.: 412-960-9960 Coord. de Plataforma de Aplicaciones ejecutar las siguientes actividades:
+Buenas Tardes, dando continuidad con la For12D, se solicita al personal de la Cesar Ávila Telf.: 412-960-9960 Coord. de Plataforma de Aplicaciones ejecutar las siguientes actividades:
 
 	Realizar respaldo del archivo del build del frontend 
 	Enviar confirmación por correo al equipo de implementación de que se realizaron los respaldos
@@ -18,7 +18,7 @@ Se da Inicio al siguiente Trabajo
 
 
 Ticket 
-*CDC# 454545445*
+*CDC# *
 
 *Nombre del Trabajo:*
 
@@ -35,14 +35,14 @@ Ticket
 
 *Responsable de Trabajo:*
 
- 4545454
+ 4545454545
 
 ------------------------------------------------------------
 
 
 
 
-Buenas Noches, prosiguiendo con lo estipulado en la For12D, se solicita al personal de la Daniel Medina Telf.: 412-3539661 Coord. Implementación ejecutar las siguientes actividades:
+Buenas Noches, dando continuidad con la For12D, se solicita al personal de la Daniel Medina Telf.: 412-3539661 Coord. Implementación ejecutar las siguientes actividades:
 
 	Llamar al cor para realizar la activación del CDC
 	Coordinacion de Implementacion hace envio del correo de INICIO, y notifica a todos los involucrados. 
@@ -53,7 +53,7 @@ Estaré pendiente de sus comentarios y del envío de las evidencias.
 ------------------------------------------------------------
 
 
-Buenas Noches, continuando con el trabajo, se solicita al personal de la Antonio Ruiz: Telf 0424-5977038  Coord. de Soporte de Aplicaciones para Gestión de Clientes ejecutar las siguientes actividades:
+Buenas Noches, dando continuidad con la For12D, se solicita al personal de la Antonio Ruiz: Telf 0424-5977038  Coord. de Soporte de Aplicaciones para Gestión de Clientes ejecutar las siguientes actividades:
 
 	Validación del correcto funcionamiento de los servicios de RTB
 	Validación del correcto funcionamiento de tu movilnet en linea (autogestión)
@@ -61,12 +61,12 @@ Buenas Noches, continuando con el trabajo, se solicita al personal de la Antonio
 	Enviar resultados de la validación por correo al equipo de implementación
 
 
-Estaré pendiente de sus comentarios y del envío de las evidencias.
+Agradezco de antemano sus comentarios y el envío de las evidencias.
 
 ------------------------------------------------------------
 
 
-Buenas Noches, siguiendo con las actividades, se solicita al personal de la Cesar Ávila Telf.: 412-960-9960 Coord. de Plataforma de Aplicaciones ejecutar las siguientes actividades:
+Buenas Noches, continuando con el trabajo, se solicita al personal de la Cesar Ávila Telf.: 412-960-9960 Coord. de Plataforma de Aplicaciones ejecutar las siguientes actividades:
 
 	bajar el Nginx
 	Realizar el deploy del build del frontend
@@ -76,7 +76,7 @@ Buenas Noches, siguiendo con las actividades, se solicita al personal de la Cesa
 	Enviar confirmación por correo al equipo de implementación de que se realizó el despliegue
 
 
-Quedo atento a sus comentarios y a la recepción de las evidencias.
+Estaré pendiente de sus comentarios y del envío de las evidencias.
 
 ------------------------------------------------------------
 
@@ -85,21 +85,21 @@ Buenas Noches, continuando con el trabajo, se solicita al personal de la Daniel 
 
 	Validación de los servicios del Aplicativo
 
-Estaré pendiente de sus comentarios y del envío de las evidencias.
-
-------------------------------------------------------------
-
-
-Buenas Noches, siguiendo con las actividades, se solicita al personal de la Antonio Ruiz: Telf 0424-5977038  Coord. de Soporte de Aplicaciones para Gestión de Clientes ejecutar las siguientes actividades:
-
-	Validación del correcto funcionamiento de tu movilnet en linea (autogestión)
-
 Quedo atento a sus comentarios y a la recepción de las evidencias.
 
 ------------------------------------------------------------
 
 
-Buenas Noches, continuando con el trabajo, se solicita al personal de la Daniel Medina Telf.: 412-3539661 Coord. Implementación ejecutar las siguientes actividades:
+Buenas Noches, dando continuidad con la For12D, se solicita al personal de la Antonio Ruiz: Telf 0424-5977038  Coord. de Soporte de Aplicaciones para Gestión de Clientes ejecutar las siguientes actividades:
+
+	Validación del correcto funcionamiento de tu movilnet en linea (autogestión)
+
+Agradezco de antemano sus comentarios y el envío de las evidencias.
+
+------------------------------------------------------------
+
+
+Buenas Noches, dando continuidad con la For12D, se solicita al personal de la Daniel Medina Telf.: 412-3539661 Coord. Implementación ejecutar las siguientes actividades:
 
 	Notificar a los involucrados los resultados de las pruebas. Fin de la ventana.
 
@@ -111,7 +111,7 @@ Se da Fin al siguiente Trabajo
 
 
  Ticket 
-*CDC# 454545445*
+*CDC# *
 
 *Nombre del Trabajo:*
 
@@ -127,5 +127,5 @@ Se valida la correcta ejecución de todas las actividades descritas en la For12d
 
 *Responsable de Trabajo:*
 
- 4545454
+ 4545454545
 

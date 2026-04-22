@@ -3,12 +3,13 @@ from redactoresMensajeFor12N import *
 from redactorMensajesConPrevias import *
 
 # Obtener datos de la función for12Data
-[conPrevias,Documento]=tipoFor12d()
-cdc = input("Por favor introduzca el cdc del ticket de la for12d: ")
+[conPrevias, Documento] = tipoFor12d()
+
+# --- NUEVAS SOLICITUDES DE DATOS ---
+cdc = input("Por favor introduzca el cdc del ticket: ")
+datos_ejecutante = input("Introduzca los datos del Ejecutante: ")
+
 if(conPrevias):
-    redactorFor12dActividadesPrevias(Documento,cdc)
+    redactorFor12dActividadesPrevias(Documento, cdc, datos_ejecutante)
 else:
-    redactorFor12dNormal(Documento,cdc)
-# Obtener hora de inicio y fin de las actividades
-
-
+    redactorFor12dNormal(Documento, cdc, datos_ejecutante)

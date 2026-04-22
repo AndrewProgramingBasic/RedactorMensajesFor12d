@@ -1,0 +1,115 @@
+﻿Buenas Tardes
+
+Se da Inicio al siguiente Trabajo
+
+
+Ticket 
+*CDC# 3900080996*
+
+*Nombre del Trabajo:*
+
+ Pase a Produccion de mejoras de rendimiento en Tu Movilnet En Línea (Sistema AutogestionWeb)  
+*Hora de inicio:* 13:00
+
+*Servicios / Aplicaciones Afectadas*
+
+
+ N/A
+
+*Justificación:*
+ El presente trabajo tiene como proposito realizar el despliegue de un nuevo relase en el ambiente de produccion para posteriormente realizar el pase a produccion de las mejoras en el rendimiento debido a la incidencia que afecta a ciertos usuarios no permitiendo el ingreso al aplicativo por el error "El tiempo máximo de la sesion activa ha terminado" y validar el funcionamiento correcto de todo el aplicativo (Autogestion Web).
+
+*Responsable de Trabajo:*
+
+ Daniel Medina / 412-3539661 (Implementación y Estabilización)
+
+	Enviar confirmación por correo al equipo de implementación de que se realizaron los respaldos
+
+
+Agradezco de antemano sus comentarios y el envío de las evidencias.
+
+----------------------------------------------------------------------------------------------------
+
+
+Buenas Noches, continuando con el trabajo, se solicita al personal de la Daniel Medina Telf.: 412-3539661 Coord. Implementación ejecutar las siguientes actividades:
+
+	Llamar al cor para realizar la activación del CDC
+	Coordinacion de Implementacion hace envio del correo de INICIO, y notifica a todos los involucrados. 
+
+
+Agradezco de antemano sus comentarios y el envío de las evidencias.
+
+----------------------------------------------------------------------------------------------------
+
+
+Buenas Noches, prosiguiendo con lo estipulado en la For12D, se solicita al personal de la Antonio Ruiz: Telf 0424-5977038  Coord. de Soporte de Aplicaciones para Gestión de Clientes ejecutar las siguientes actividades:
+
+	Validación del correcto funcionamiento de los servicios de RTB
+	Validación del correcto funcionamiento de tu movilnet en linea (autogestión)
+
+	Enviar resultados de la validación por correo al equipo de implementación
+
+
+Agradezco sus comentarios y solicito el envío de las evidencias.
+
+----------------------------------------------------------------------------------------------------
+
+
+Buenas Noches, continuando con el trabajo, se solicita al personal de la Cesar Ávila Telf.: 412-960-9960 Coord. de Plataforma de Aplicaciones ejecutar las siguientes actividades:
+
+	bajar el Nginx
+	Realizar el deploy del build del frontend
+
+	Subir el Nginx
+
+	Enviar confirmación por correo al equipo de implementación de que se realizó el despliegue
+
+
+Estaré pendiente de sus comentarios y del envío de las evidencias.
+
+----------------------------------------------------------------------------------------------------
+
+
+Buenas Noches, continuando con el trabajo, se solicita al personal de la Daniel Medina Telf.: 412-3539661 Coord. Implementación ejecutar las siguientes actividades:
+
+	Validación de los servicios del Aplicativo
+
+Estaré pendiente de sus comentarios y del envío de las evidencias.
+
+----------------------------------------------------------------------------------------------------
+
+
+Buenas Noches, siguiendo con las actividades, se solicita al personal de la Antonio Ruiz: Telf 0424-5977038  Coord. de Soporte de Aplicaciones para Gestión de Clientes ejecutar las siguientes actividades:
+
+	Validación del correcto funcionamiento de tu movilnet en linea (autogestión)
+
+Quedo atento a sus comentarios y a la recepción de las evidencias.
+
+----------------------------------------------------------------------------------------------------
+
+
+
+Buenas Noches
+
+Se da Fin al siguiente Trabajo
+
+
+ Ticket 
+*CDC# 3900080996*
+
+*Nombre del Trabajo:*
+
+ Pase a Produccion de mejoras de rendimiento en Tu Movilnet En Línea (Sistema AutogestionWeb)   
+
+*Resultado:*
+
+
+OK
+
+*Justificación:*
+Se confirma la ejecución exitosa de todas las actividades especificadas en la For12d: Pase a Produccion de mejoras de rendimiento en Tu Movilnet En Línea (Sistema AutogestionWeb)
+
+*Responsable de Trabajo:*
+
+ Daniel Medina / 412-3539661 (Implementación y Estabilización)
+
