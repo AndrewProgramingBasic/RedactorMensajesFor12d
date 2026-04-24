@@ -3,10 +3,8 @@ from tkinter import filedialog
 import tkinter as tk
 import random
 from datetime import datetime
-
-def limpiar_campos(lista_campos):
-    """Filtra y elimina los valores None de la lista de encabezados"""
-    return [campo for campo in lista_campos if campo is not None]
+from utils import *
+# --- Lógica de Lectura ---
 
 def tipoFor12d():
     try:
@@ -21,7 +19,7 @@ def tipoFor12d():
         numCelda = 1
         for fila in hoja.iter_rows():
             if numCelda >= 7:
-                # Si la primera celda NO es un entero (ej. es un string o None), asumimos formato especial
+                # Detección de formato basado en la primera celda
                 if not isinstance(fila[0].value, int):
                     return [True, libro]
                 else:
@@ -34,16 +32,15 @@ def for12Data(archivo):
     """Lectura estándar del FOR12 sin distinción de previas/ventana"""
     nameCampos = []
     rows = []
-    datosGenerales = {}
 
     try:
         libro = archivo
         hoja = libro['Plan de trabajo']
         numFila = 1
+        campos_crudos = []
 
         for fila in hoja.iter_rows():
             if numFila == 5:
-                # Obtenemos y LIMPIAMOS los campos inmediatamente
                 campos_crudos = [celda.value for celda in fila]
                 nameCampos = limpiar_campos(campos_crudos)
             
@@ -53,10 +50,10 @@ def for12Data(archivo):
                     continue
                 
                 diccionario = {}
-                # Filtramos las celdas de la fila que coinciden con columnas con nombre
-                celdas_validas = [celda.value for i, celda in enumerate(fila) if i < len(campos_crudos) and campos_crudos[i] is not None]
+                valores_fila = [celda.value for i, celda in enumerate(fila) 
+                               if i < len(campos_crudos) and campos_crudos[i] is not None]
                 
-                for i, valor in enumerate(celdas_validas):
+                for i, valor in enumerate(valores_fila):
                     if i < len(nameCampos):
                         diccionario[nameCampos[i]] = valor
                 
@@ -64,14 +61,8 @@ def for12Data(archivo):
                     rows.append(diccionario)
             numFila += 1
 
-        hoja_gen = libro['Datos Generales']
-        acum1 = 1
-        for fila in hoja_gen.iter_rows():
-            if acum1 == 17:
-                datosGenerales["name"] = fila[0].value
-            if acum1 == 20:
-                datosGenerales["justify"] = fila[0].value
-            acum1 += 1
+        # Uso de la función modularizada
+        datosGenerales = obtener_datos_generales(libro)
 
         return [eliminar_vacios(rows), datosGenerales]
     except Exception as e:
@@ -82,7 +73,6 @@ def conActividadesPrevias(archivo):
     """Lectura dividida: detecta Previas y luego llama a Ventana"""
     nameCampos = []
     rows_previas = []
-    datosGenerales = {}
     libro = archivo
     hoja = libro['Plan de trabajo']
     
@@ -100,21 +90,18 @@ def conActividadesPrevias(archivo):
             nameCampos = limpiar_campos(campos_originales_con_none)
             
         elif numFilaContador >= 8:
+            # Validación de fin de bloque de previas
             try:
+                if fila[0].value is None: raise ValueError
                 int(fila[0].value)
             except:
                 breakear = True
                 contBool += 1
                 break
-            if fila[0].value is None:
-                if contBool == 0:
-                    breakear = True
-                    contBool += 1
-                break
             
             diccionario = {}
-            # Extraer solo valores de celdas que tienen un encabezado real
-            valores_fila = [celda.value for i, celda in enumerate(fila) if i < len(campos_originales_con_none) and campos_originales_con_none[i] is not None]
+            valores_fila = [celda.value for i, celda in enumerate(fila) 
+                           if i < len(campos_originales_con_none) and campos_originales_con_none[i] is not None]
             
             for i, valor in enumerate(valores_fila):
                 if i < len(nameCampos):
@@ -124,18 +111,11 @@ def conActividadesPrevias(archivo):
                 rows_previas.append(diccionario)
         
         numFilaContador += 1
-    print(nameCampos)
-    # Pasamos nameCampos ya limpio y el esquema original para sincronizar la ventana
+
     ventanaActividade = actividadesVentana(numFilaContador, libro, nameCampos, campos_originales_con_none)
     
-    hoja_gen = libro['Datos Generales']
-    acum1 = 1
-    for fila in hoja_gen.iter_rows():
-        if acum1 == 17:
-            datosGenerales["name"] = fila[0].value
-        if acum1 == 20:
-            datosGenerales["justify"] = fila[0].value
-        acum1 += 1
+    # Uso de la función modularizada
+    datosGenerales = obtener_datos_generales(libro)
 
     return [ventanaActividade, eliminar_vacios(rows_previas), datosGenerales]
 
@@ -147,8 +127,8 @@ def actividadesVentana(numFilaInicio, archivo, nameCamposLimpios, camposOriginal
     for fila in hoja.iter_rows(min_row=numFilaInicio):
         if isinstance(fila[0].value, int):
             diccionario = {}
-            # Sincronización basada en los campos originales para saltar los Nones de la fila
-            valores_fila = [celda.value for i, celda in enumerate(fila) if i < len(camposOriginales) and camposOriginales[i] is not None]
+            valores_fila = [celda.value for i, celda in enumerate(fila) 
+                           if i < len(camposOriginales) and camposOriginales[i] is not None]
             
             for i, valor in enumerate(valores_fila):
                 if i < len(nameCamposLimpios):
@@ -156,12 +136,8 @@ def actividadesVentana(numFilaInicio, archivo, nameCamposLimpios, camposOriginal
             
             if diccionario:
                 rows_ventana.append(diccionario)
-    print("Esto es rows ventana")
-    print(rows_ventana)
-    return eliminar_vacios(rows_ventana)
 
-def eliminar_vacios(rows):
-    return [row for row in rows if row and any(v is not None for v in row.values())]
+    return eliminar_vacios(rows_ventana)
 
 # --- Mensajería ---
 

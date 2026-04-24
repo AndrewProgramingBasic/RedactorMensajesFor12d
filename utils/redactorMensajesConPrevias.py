@@ -1,13 +1,8 @@
 from lectorFor12 import *
 from utils import *
 
-def redactorFor12dActividadesPrevias(archivo, cdc, ejecutante):
+def redactorFor12dActividadesPrevias(archivo, cdc):
     [actividades, previas, generales] = conActividadesPrevias(archivo)
-    print("")
-    print(actividades)
-    print("")
-    print(previas)
-    print("")
     horaInicio = extraer_hora_texto(actividades[0]["FECHA Y HORA DE INICIO"])
 
     def eliminar_texto_despues_frase(texto, frase):
@@ -40,7 +35,7 @@ def redactorFor12dActividadesPrevias(archivo, cdc, ejecutante):
         f"*Hora de inicio:* {horaInicio}\n\n"
         f"*Servicios / Aplicaciones Afectadas*\n\n\n N/A\n\n"
         f"*Justificación:*\n {generales['justify']}\n\n"
-        f"*Responsable de Trabajo:*\n\n {ejecutante}\n\n"
+        f"*Responsable de Trabajo:*\n\n {generales['owner']}\n\n"
     )
     
     todosLosMensajes += messageInitial
@@ -56,7 +51,7 @@ def redactorFor12dActividadesPrevias(archivo, cdc, ejecutante):
             todosLosMensajes += f"\n{mensajeFinalRandom()}\n\n" + "-"*60 + "\n"
 
     # Mensaje Final
-    todosLosMensajes += f"\n\n\n{get_saludo(actividades[-1])}\n\nSe da Fin al siguiente Trabajo\n\n\n Ticket \n*CDC# {cdc}*\n\n*Nombre del Trabajo:*\n\n {generales['name']}   \n\n*Resultado:*\n\n\nOK\n\n*Justificación:*\n{mensajeFinActividades() + generales['name']}\n\n*Responsable de Trabajo:*\n\n {ejecutante}\n\n"
+    todosLosMensajes += f"\n\n\n{get_saludo(actividades[-1])}\n\nSe da Fin al siguiente Trabajo\n\n\n Ticket \n*CDC# {cdc}*\n\n*Nombre del Trabajo:*\n\n {generales['name']}   \n\n*Resultado:*\n\n\nOK\n\n*Justificación:*\n{mensajeFinActividades() + generales['name']}\n\n*Responsable de Trabajo:*\n\n {generales['owner']}\n\n"
 
     nombre_f = f"{cdc} {limpiar_nombre_archivo(generales['name'])}.txt"
     guardar_en_txt(todosLosMensajes, os.path.join(".", "CDC", nombre_f))

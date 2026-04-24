@@ -8,7 +8,7 @@ call venv\Scripts\activate
 
 echo Ejecutando script...
 :: Ejecutamos el archivo que está dentro de utils
-python utils\redactorMensajes.py
+python utils\main.py
 
 echo.
 echo Proceso finalizado.

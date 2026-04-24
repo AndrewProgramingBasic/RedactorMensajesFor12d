@@ -46,3 +46,54 @@ def guardar_en_txt(texto, ruta_relativa):
     # 'utf-8-sig' añade el BOM necesario para Excel y Bloc de Notas
     with open(ruta_absoluta, "w", encoding="utf-8-sig") as f:
         f.write(texto)
+
+def limpiar_campos(lista_campos):
+    """Filtra y elimina los valores None de la lista de encabezados"""
+    return [campo for campo in lista_campos if campo is not None]
+
+def eliminar_vacios(rows):
+    """Elimina diccionarios vacíos o filas que no tengan datos reales"""
+    return [row for row in rows if row and any(v is not None for v in row.values())]
+
+def obtener_datos_generales(libro):
+    """Extrae el nombre y la justificación de la hoja 'Datos Generales'"""
+    datos = {}
+    try:
+        hoja_gen = libro['Datos Generales']
+        acum1 = 1
+        area = ""
+        for fila in hoja_gen.iter_rows():
+            # Usamos str() para evitar errores si el valor es None o Int
+            if acum1 == 11:
+                valor_area = fila[4].value
+                area = str(valor_area) if valor_area else ""
+            
+            if acum1 == 17:
+                datos["name"] = fila[0].value
+                
+            if acum1 == 20:
+                datos["justify"] = fila[0].value
+                
+            if acum1 == 25:
+                # Convertimos a str cada celda para evitar el error de concatenación
+                nombre = str(fila[0].value) if fila[0].value else ""
+                telefono = str(fila[3].value) if fila[3].value else ""
+                datos["owner"] = nombre + " // " + telefono + " // "
+                
+            acum1 += 1
+            
+        # Unimos el área al owner (verificando que owner exista)
+        if "owner" in datos:
+            datos["owner"] += area
+        else:
+            datos["owner"] = "No definido"
+
+    except Exception as e:
+        print(f"Error al leer Datos Generales: {e}")
+        # IMPORTANTE: Incluir 'owner' aquí para evitar KeyError
+        datos = {
+            "name": "No encontrado", 
+            "justify": "No encontrado", 
+            "owner": "No encontrado"
+        }
+    return datos
