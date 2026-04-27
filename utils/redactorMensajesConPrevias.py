@@ -1,4 +1,4 @@
-from lectorFor12 import *
+from utils.lector_web import *
 from utils import *
 
 def redactorFor12dActividadesPrevias(archivo, cdc):

@@ -2,23 +2,27 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Redactor For12d</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redactor de Mensajes FOR12</title>
     <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; padding-top: 50px; background: #f4f4f9; }
-        .card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        input { display: block; margin-bottom: 1rem; width: 100%; }
-        button { width: 100%; background: #007bff; color: white; border: none; padding: 10px; cursor: pointer; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #eef2f7; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+        h2 { color: #2c3e50; text-align: center; margin-bottom: 25px; }
+        label { display: block; margin-bottom: 8px; color: #555; font-weight: bold; }
+        input { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
+        button { width: 100%; padding: 14px; background: #007bff; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: 0.3s; }
+        button:hover { background: #0056b3; }
     </style>
 </head>
 <body>
     <div class="card">
-        <h2>Generar Mensajes For12d</h2>
+        <h2>Generador FOR12</h2>
         <form method="post" enctype="multipart/form-data">
             <label>CDC del Ticket:</label>
-            <input type="text" name="cdc" required placeholder="Ej: 39">
-            <label>Archivo Excel (FOR12):</label>
+            <input type="text" name="cdc" required placeholder="Ej: 45621">
+            <label>Archivo Excel:</label>
             <input type="file" name="file" accept=".xlsx" required>
-            <button type="submit">Procesar y Descargar .txt</button>
+            <button type="submit">Procesar y Descargar</button>
         </form>
     </div>
 </body>

@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  redactor-for12:
+    build: .
+    container_name: redactor_app
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=production
+    restart: always

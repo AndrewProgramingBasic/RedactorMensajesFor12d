@@ -1,13 +1,11 @@
-from flask import Flask, render_template, request, send_file, flash
+from flask import Flask, request, render_template, send_file
 import openpyxl
 import io
-import os
-from utils.lectorFor12 import for12Data, conActividadesPrevias, tipoFor12d_web
-from redactoresMensajeFor12N import procesar_normal_web
-from redactorMensajesConPrevias import procesar_previas_web
+from utils.lector_web import detectar_tipo_web
+from utils.redactores import redactorFor12dNormal, redactorFor12dActividadesPrevias
+from utils.utils import obtener_datos_generales, limpiar_nombre_archivo
 
 app = Flask(__name__)
-app.secret_key = "secret_key_for_session"
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -16,47 +14,39 @@ def index():
             return "No hay archivo"
         
         file = request.files['file']
-        cdc = request.form.get('cdc')
+        cdc_number = request.form.get('cdc', '000000')
         
-        if file.filename == '':
-            return "Archivo no seleccionado"
-
-        if file and cdc:
-            # Leer el archivo directamente desde la memoria (Stream)
-            in_memory_file = io.BytesIO(file.read())
-            libro = openpyxl.load_workbook(in_memory_file, data_only=True)
+        if file and file.filename != '':
+            # Cargamos el libro
+            libro = openpyxl.load_workbook(file, data_only=True)
             
-            # Lógica para detectar si es con previas (basado en tu tipoFor12d)
-            # Adaptamos tipoFor12d para que reciba el libro ya abierto
-            es_con_previas = detectar_tipo_web(libro)
+            # Detectamos tipo y obtenemos datos generales para el nombre del archivo
+            tiene_previas = detectar_tipo_web(libro)
+            generales = obtener_datos_generales(libro)
             
-            if es_con_previas:
-                resultado_txt = procesar_previas_web(libro, cdc)
+            # Generamos el contenido del texto
+            if tiene_previas:
+                resultado_texto = redactorFor12dActividadesPrevias(libro, cdc_number)
             else:
-                resultado_txt = procesar_normal_web(libro, cdc)
+                resultado_texto = redactorFor12dNormal(libro, cdc_number)
             
-            # Devolver el archivo para descarga inmediata
-            mem = io.BytesIO()
-            mem.write(resultado_txt.encode('utf-8-sig'))
-            mem.seek(0)
+            # --- LÓGICA DE DESCARGA ---
+            # Creamos el nombre del archivo tal como lo tenías antes
+            nombre_f = f"{cdc_number}_{limpiar_nombre_archivo(generales['name'])}.txt"
+            
+            # Convertimos el string a bytes usando UTF-8 con BOM (sig) para compatibilidad con Windows
+            buffer = io.BytesIO()
+            buffer.write(resultado_texto.encode('utf-8-sig'))
+            buffer.seek(0)
             
             return send_file(
-                mem,
+                buffer,
                 as_attachment=True,
-                download_name=f"CDC_{cdc}.txt",
+                download_name=nombre_f,
                 mimetype='text/plain'
             )
 
-    return render_template('index.html')
-
-def detectar_tipo_web(libro):
-    hoja = libro['Plan de trabajo']
-    num = 1
-    for fila in hoja.iter_rows():
-        if num >= 7:
-            return not isinstance(fila[0].value, int)
-        num += 1
-    return False
+    return render_template('index.html', resultado=None)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True, port=5000)
