@@ -43,32 +43,92 @@ def eliminar_vacios(rows):
     return [row for row in rows if row and any(v is not None for v in row.values())]
 
 def obtener_datos_generales(libro):
-    """Lógica restaurada: índices 11, 17, 20, 25 con concatenación de Área"""
+    """Extrae datos generales buscando dinámicamente por etiquetas o por índices tradicionales"""
     datos = {}
     try:
+        if 'Datos Generales' not in libro.sheetnames:
+            print("[ADVERTENCIA] Hoja 'Datos Generales' no encontrada.")
+            return {"name": "Sin_Nombre", "justify": "N/A", "owner": "No definido"}
+
         hoja_gen = libro['Datos Generales']
-        acum1 = 1
+        filas = list(hoja_gen.iter_rows(values_only=True))
+
+        name = None
+        justify = None
+        owner_name = None
+        owner_phone = None
         area = ""
-        for fila in hoja_gen.iter_rows():
-            if acum1 == 11:
-                valor_area = fila[4].value
-                area = str(valor_area) if valor_area else ""
-            if acum1 == 17:
-                datos["name"] = fila[0].value
-            if acum1 == 20:
-                datos["justify"] = fila[0].value
-            if acum1 == 25:
-                nombre = str(fila[0].value) if fila[0].value else ""
-                telefono = str(fila[3].value) if fila[3].value else ""
-                datos["owner"] = f"{nombre} // {telefono} // "
+
+        # Búsqueda dinámica por etiquetas
+        for idx, fila in enumerate(filas):
+            if not fila:
+                continue
+            row_str = " ".join(str(v).upper() for v in fila if v is not None)
+
+            # Unidad ejecutante (Área)
+            if "UNIDAD EJECUTANTE" in row_str:
+                for next_idx in range(idx + 1, min(idx + 4, len(filas))):
+                    next_fila = filas[next_idx]
+                    if len(next_fila) > 4 and next_fila[4]:
+                        val_col4 = str(next_fila[4]).strip()
+                        if val_col4 and val_col4.upper() not in ["COORDINACIÓN", "COORDINACION"]:
+                            area = val_col4
+                            break
+
+            # Descripción del cambio
+            if "DESCRIPCION DEL CAMBIO" in row_str or "DESCRIPCIÓN DEL CAMBIO" in row_str:
+                for next_idx in range(idx + 1, min(idx + 3, len(filas))):
+                    next_fila = filas[next_idx]
+                    if next_fila and next_fila[0] and str(next_fila[0]).strip():
+                        name = str(next_fila[0]).strip()
+                        break
+
+            # Justificación del cambio
+            if "JUSTIFICACION DEL CAMBIO" in row_str or "JUSTIFICACIÓN DEL CAMBIO" in row_str:
+                for next_idx in range(idx + 1, min(idx + 3, len(filas))):
+                    next_fila = filas[next_idx]
+                    if next_fila and next_fila[0] and str(next_fila[0]).strip():
+                        justify = str(next_fila[0]).strip()
+                        break
+
+            # Responsable Ejecutante
+            if "RESPONSABLE EJECUTANTE" in row_str:
+                for next_idx in range(idx + 1, min(idx + 3, len(filas))):
+                    next_fila = filas[next_idx]
+                    if next_fila and next_fila[0] and str(next_fila[0]).strip():
+                        owner_name = str(next_fila[0]).strip()
+                        if len(next_fila) > 3 and next_fila[3]:
+                            owner_phone = str(next_fila[3]).strip()
+                        break
+
+        # Fallback a índices fijos por si alguna plantilla antigua no tiene los textos esperados
+        acum1 = 1
+        for fila in filas:
+            if acum1 == 11 and not area:
+                if len(fila) > 4 and fila[4]:
+                    area = str(fila[4]).strip()
+            if acum1 == 17 and not name:
+                if fila and fila[0]:
+                    name = str(fila[0]).strip()
+            if acum1 == 20 and not justify:
+                if fila and fila[0]:
+                    justify = str(fila[0]).strip()
+            if acum1 == 25 and not owner_name:
+                if fila and fila[0]:
+                    owner_name = str(fila[0]).strip()
+                if len(fila) > 3 and fila[3] and not owner_phone:
+                    owner_phone = str(fila[3]).strip()
             acum1 += 1
-        
-        if "owner" in datos:
-            datos["owner"] += area
-        else:
-            datos["owner"] = "No definido"
+
+        datos["name"] = name if name else "Sin_Nombre"
+        datos["justify"] = justify if justify else "N/A"
+
+        owner_str = f"{owner_name or 'No definido'} // {owner_phone or 'S/T'} // "
+        if area:
+            owner_str += area
+        datos["owner"] = owner_str
 
     except Exception as e:
-        print(f"Error al leer Datos Generales: {e}")
+        print(f"[ERROR] Error al leer Datos Generales: {e}")
         datos = {"name": "No encontrado", "justify": "No encontrado", "owner": "No encontrado"}
     return datos

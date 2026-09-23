@@ -1,0 +1,132 @@
+﻿ACTIVIDADES PREVIAS
+============================================================
+
+
+
+Buenas Tardes, continuando con el trabajo, se solicita al personal de la Coordinacion de Plataforma de Aplicaciones - Cesar Avila (412-6168983) ejecutar las siguientes actividades:
+
+	Respaldar el directorio /var/www/dist
+
+
+ACTIVIDADES VENTANA
+============================================================
+Buenas Noches
+
+Se da Inicio al siguiente Trabajo
+
+
+Ticket 
+*CDC# 39000811458*
+
+*Nombre del Trabajo:*
+
+ Pase a Produccion de Mejoras en Consulta tu Deuda (VPTI-202601003-VPTI-202510268)  
+*Hora de inicio:* 20:30
+
+*Servicios / Aplicaciones Afectadas*
+
+
+ N/A
+
+*Justificación:*
+ Se requiere realizar el pase a producción de las mejoras de consulta tu deuda (VPTI-202601003 - VPTI-202510268) con el fin de integrar Google Analytics y así medir el comportamiento e interacción de los usuarios, además de Ocultar el nombre del cliente para mejoras de usabilidad y acciones de seguridad que permitan maximizar la eficiencia del proceso de recaudación mediante la protección de la identidad del usuario.
+
+*Responsable de Trabajo:*
+
+ Daniel Medina // 424-718-2016 // Implementación de Soluciones TI
+
+------------------------------------------------------------
+
+
+
+
+Buenas Noches, continuando con el trabajo, se solicita al personal de la Daniel Medina ejecutar las siguientes actividades:
+
+	Llamar al cor para realizar la activación del CDC
+	Coordinacion de Implementacion hace envio del correo de INICIO, y notifica a todos los involucrados.
+
+
+Agradezco sus comentarios y solicito el envío de las evidencias.
+
+------------------------------------------------------------
+
+
+Buenas Noches, continuando con el trabajo, se solicita al personal de la Coordinacion de Saldo y Consumos- Mauricio Morales (0424-2252419) ejecutar las siguientes actividades:
+
+	Validacion de trazas log del Servicio Consulta tu deuda
+
+Estaré pendiente de sus comentarios y del envío de las evidencias.
+
+------------------------------------------------------------
+
+
+Buenas Noches, siguiendo con las actividades, se solicita al personal de la Coordinacion de Plataforma de Aplicaciones - Cesar Avila (412-6168983) ejecutar las siguientes actividades:
+
+	Bajar el http server nginx
+	desplegar el nuevo release del front en en la ruta /var/www/dist
+
+	Subir el http server nginx
+
+
+Estaré pendiente de sus comentarios y del envío de las evidencias.
+
+------------------------------------------------------------
+
+
+Buenas Noches, continuando con el trabajo, se solicita al personal de la Daniel Medina ejecutar las siguientes actividades:
+
+	Pruebas del servicio consulta tu deuda
+
+Agradezco de antemano sus comentarios y el envío de las evidencias.
+
+------------------------------------------------------------
+
+
+Buenas Noches, continuando con el trabajo, se solicita al personal de la Miguel Enrique ejecutar las siguientes actividades:
+
+	Validación de conexión del google analitycs con consulta tu deuda
+
+Agradezco de antemano sus comentarios y el envío de las evidencias.
+
+------------------------------------------------------------
+
+
+Buenas Noches, siguiendo con las actividades, se solicita al personal de la Coordinacion de Saldo y Consumos- Mauricio Morales (0424-2252419) ejecutar las siguientes actividades:
+
+	Validacion de los log de pruebas realizadas del Servicios Consulta tu deuda
+
+Quedo atento a sus comentarios y a la recepción de las evidencias.
+
+------------------------------------------------------------
+
+
+Buenas Noches, siguiendo con las actividades, se solicita al personal de la Daniel Medina ejecutar las siguientes actividades:
+
+	Coordinacion de Implementacion hace envio del correo de FIN de la ventana.
+
+
+
+Buenas Noches
+
+Se da Fin al siguiente Trabajo
+
+
+ Ticket 
+*CDC# 39000811458*
+
+*Nombre del Trabajo:*
+
+ Pase a Produccion de Mejoras en Consulta tu Deuda (VPTI-202601003-VPTI-202510268)    
+
+*Resultado:*
+
+
+OK
+
+*Justificación:*
+Se valida la correcta ejecución: Pase a Produccion de Mejoras en Consulta tu Deuda (VPTI-202601003-VPTI-202510268)
+
+*Responsable de Trabajo:*
+
+ Daniel Medina // 424-718-2016 // Implementación de Soluciones TI
+

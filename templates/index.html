@@ -5,21 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redactor de Mensajes FOR12</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #eef2f7; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
-        h2 { color: #2c3e50; text-align: center; margin-bottom: 25px; }
-        label { display: block; margin-bottom: 8px; color: #555; font-weight: bold; }
-        input { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
-        button { width: 100%; padding: 14px; background: #007bff; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: 0.3s; }
-        button:hover { background: #0056b3; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #eef2f7; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            min-height: 100vh; 
+            margin: 0; 
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .card { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+            width: 100%; 
+            max-width: 450px; 
+        }
+        h2 { 
+            color: #2c3e50; 
+            text-align: center; 
+            margin-bottom: 25px; 
+        }
+        label { 
+            display: block; 
+            margin-bottom: 8px; 
+            color: #555; 
+            font-weight: bold; 
+        }
+        input { 
+            width: 100%; 
+            padding: 12px; 
+            margin-bottom: 20px; 
+            border: 1px solid #ddd; 
+            border-radius: 6px; 
+            box-sizing: border-box; 
+            font-size: 14px;
+        }
+        button { 
+            width: 100%; 
+            padding: 14px; 
+            background: #007bff; 
+            color: white; 
+            border: none; 
+            border-radius: 6px; 
+            font-size: 16px; 
+            font-weight: bold;
+            cursor: pointer; 
+            transition: background 0.3s; 
+        }
+        button:hover { 
+            background: #0056b3; 
+        }
+        .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 14px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            border: 1px solid #f5c6cb;
+            line-height: 1.4;
+            word-break: break-word;
+        }
     </style>
 </head>
 <body>
     <div class="card">
         <h2>Generador FOR12</h2>
+
+        {% if error %}
+        <div class="alert-error">
+            <strong>⚠️ Atención:</strong> {{ error }}
+        </div>
+        {% endif %}
+
         <form method="post" enctype="multipart/form-data">
             <label>CDC del Ticket:</label>
-            <input type="text" name="cdc" required placeholder="Ej: 45621">
+            <input type="text" name="cdc" required placeholder="Ej: 3900081458">
             <label>Archivo Excel:</label>
             <input type="file" name="file" accept=".xlsx" required>
             <button type="submit">Procesar y Descargar</button>
