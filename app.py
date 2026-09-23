@@ -9,6 +9,8 @@ from utils.utils import obtener_datos_generales, limpiar_nombre_archivo
 
 app = Flask(__name__)
 app.secret_key = "redactor_for12d_secret_key"
+# Versión actualizada con formato limpio de actividades y despedidas
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():

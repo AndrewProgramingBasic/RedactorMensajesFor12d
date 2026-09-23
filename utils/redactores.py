@@ -33,16 +33,24 @@ def redactorFor12dNormal(archivo, cdc):
         f"*Responsable de Trabajo:*\n\n {generales.get('owner', '')}\n\n"
     )
 
-    todosLosMensajes = messageInitial
+    # 1. Separación entre el mensaje inicial y el primer correo de actividades
+    todosLosMensajes = messageInitial + "-" * 60 + "\n"
 
-    for i in range(len(actividades)):
-        act_text = str(actividades[i].get('ACTIVIDAD', '')).strip()
-        if i == 0 or actividades[i].get('RESPONSABLE') != actividades[i-1].get('RESPONSABLE'):
-            todosLosMensajes += messageGenerico(actividades[i], get_saludo(actividades[i]))
+    # 2. Omitir la última actividad del bucle de mensajes (corresponde al fin de ventana)
+    actividades_proceso = actividades[:-1] if len(actividades) > 1 else actividades
+
+    for i in range(len(actividades_proceso)):
+        act_text = str(actividades_proceso[i].get('ACTIVIDAD', '')).strip()
+        if i == 0 or actividades_proceso[i].get('RESPONSABLE') != actividades_proceso[i-1].get('RESPONSABLE'):
+            todosLosMensajes += messageGenerico(actividades_proceso[i], get_saludo(actividades_proceso[i]))
         else:
             todosLosMensajes += f"\t{act_text}\n\n"
         
-        if (i + 1 < len(actividades)) and (actividades[i+1].get('RESPONSABLE') != actividades[i].get('RESPONSABLE')):
+        # Despedida y separación al cambiar de responsable o al finalizar la última actividad a procesar
+        es_ultima = (i == len(actividades_proceso) - 1)
+        cambio_resp = (not es_ultima and actividades_proceso[i+1].get('RESPONSABLE') != actividades_proceso[i].get('RESPONSABLE'))
+        
+        if es_ultima or cambio_resp:
             todosLosMensajes += f"\n{mensajeFinalRandom()}\n\n" + "-"*60 + "\n"
                 
     todosLosMensajes += f"\n\n\n{get_saludo(actividades[-1])}\n\nSe da Fin al siguiente Trabajo\n\n\n Ticket \n*CDC# {cdc}*\n\n*Nombre del Trabajo:*\n\n {generales.get('name', '')}    \n\n*Resultado:*\n\n\nOK\n\n*Justificación:*\n{mensajeFinActividades() + str(generales.get('name', ''))}\n\n*Responsable de Trabajo:*\n\n {generales.get('owner', '')}\n\n"
@@ -67,7 +75,7 @@ def redactorFor12dActividadesPrevias(archivo, cdc):
 
     todosLosMensajes = ""
     if previas:
-        todosLosMensajes += "ACTIVIDADES PREVIAS\n" + "="*60 + "\n\n"
+        todosLosMensajes += "ACTIVIDADES PREVIAS\n" + "="*60 + "\n"
         for i in range(len(previas)):
             act_text = str(previas[i].get('ACTIVIDAD', '')).strip()
             if i == 0 or previas[i].get('RESPONSABLE') != previas[i-1].get('RESPONSABLE'):
@@ -75,10 +83,14 @@ def redactorFor12dActividadesPrevias(archivo, cdc):
             else:
                 todosLosMensajes += f"\t{act_text}\n\n"
             
-            if i + 1 < len(previas) and previas[i+1].get('RESPONSABLE') != previas[i].get('RESPONSABLE'):
+            # Despedida y separación al cambiar de responsable o al finalizar las previas
+            es_ultima_previa = (i == len(previas) - 1)
+            cambio_resp = (not es_ultima_previa and previas[i+1].get('RESPONSABLE') != previas[i].get('RESPONSABLE'))
+            
+            if es_ultima_previa or cambio_resp:
                 todosLosMensajes += f"\n{mensajeFinalRandom()}\n\n" + "-"*60 + "\n"
 
-        todosLosMensajes += "\n\nACTIVIDADES VENTANA\n" + "="*60 + "\n"
+        todosLosMensajes += "\n\nACTIVIDADES VENTANA\n" + "="*60 + "\n\n"
     
     messageInitial = (
         f"{saludo_inicial}\n\n"
@@ -91,16 +103,23 @@ def redactorFor12dActividadesPrevias(archivo, cdc):
         f"*Responsable de Trabajo:*\n\n {generales.get('owner', '')}\n\n"
     )
     
-    todosLosMensajes += messageInitial + "-" * 60 + "\n\n\n"
+    # 1. Separación entre mensaje inicial y actividades de ventana
+    todosLosMensajes += messageInitial + "-" * 60 + "\n"
 
-    for i in range(len(actividades)):
-        act_text = str(actividades[i].get('ACTIVIDAD', '')).strip()
-        if i == 0 or actividades[i].get('RESPONSABLE') != actividades[i-1].get('RESPONSABLE'):
-            todosLosMensajes += messageGenerico(actividades[i], get_saludo(actividades[i]))
+    # 2. Omitir la última actividad (fin de ventana)
+    actividades_proceso = actividades[:-1] if len(actividades) > 1 else actividades
+
+    for i in range(len(actividades_proceso)):
+        act_text = str(actividades_proceso[i].get('ACTIVIDAD', '')).strip()
+        if i == 0 or actividades_proceso[i].get('RESPONSABLE') != actividades_proceso[i-1].get('RESPONSABLE'):
+            todosLosMensajes += messageGenerico(actividades_proceso[i], get_saludo(actividades_proceso[i]))
         else:
             todosLosMensajes += f"\t{act_text}\n\n"
             
-        if i + 1 < len(actividades) and actividades[i+1].get('RESPONSABLE') != actividades[i].get('RESPONSABLE'):
+        es_ultima = (i == len(actividades_proceso) - 1)
+        cambio_resp = (not es_ultima and actividades_proceso[i+1].get('RESPONSABLE') != actividades_proceso[i].get('RESPONSABLE'))
+        
+        if es_ultima or cambio_resp:
             todosLosMensajes += f"\n{mensajeFinalRandom()}\n\n" + "-"*60 + "\n"
 
     todosLosMensajes += f"\n\n\n{get_saludo(actividades[-1])}\n\nSe da Fin al siguiente Trabajo\n\n\n Ticket \n*CDC# {cdc}*\n\n*Nombre del Trabajo:*\n\n {generales.get('name', '')}    \n\n*Resultado:*\n\n\nOK\n\n*Justificación:*\n{mensajeFinActividades() + str(generales.get('name', ''))}\n\n*Responsable de Trabajo:*\n\n {generales.get('owner', '')}\n\n"
