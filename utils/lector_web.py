@@ -19,17 +19,54 @@ def parse_plan_de_trabajo(libro):
     previas = []
     ventana = []
     
-    current_section = None
+    current_section = "ventana"
     current_headers = []
     
     for row_idx, row in enumerate(rows, start=1):
         if not row or all(v is None for v in row):
             continue
             
+        first_val = row[0]
+        is_num = False
+        if isinstance(first_val, int):
+            is_num = True
+        elif first_val is not None:
+            val_clean = str(first_val).strip()
+            if val_clean.isdigit():
+                is_num = True
+
         row_str = " ".join(str(v).upper() for v in row if v is not None)
-        
-        # Identificar si es una fila de encabezados
-        if "ACTIVIDAD" in row_str and any(k in row_str for k in ["FECHA", "HORA", "RESPONSABLE", "N°", "Nº", "NO"]):
+
+        # 1. Si es fila de actividad (comienza con número): procesar actividad inmediatamente
+        if is_num:
+            if current_headers:
+                item = {}
+                for col_idx, val in enumerate(row):
+                    if col_idx < len(current_headers):
+                        header_name = current_headers[col_idx]
+                        if header_name:
+                            item[header_name] = val
+                
+                # Asegurar que tenga al menos actividad o responsable
+                if item.get("ACTIVIDAD") or item.get("RESPONSABLE"):
+                    if current_section == "previas":
+                        previas.append(item)
+                    else:
+                        ventana.append(item)
+            continue
+
+        # 2. Banners de sección (ej: "ACTIVIDADES PREVIAS A LA VENTANA DE CAMBIO", "ACTIVIDADES DURANTE LA VENTANA DE CAMBIO")
+        if "ACTIVIDADES PREVIAS" in row_str or ("PREVIA" in row_str and "VENTANA" in row_str and "DURANTE" not in row_str):
+            current_section = "previas"
+            print(f"[DEBUG] Fila {row_idx}: Banner detectado para sección '{current_section}'")
+            continue
+        elif "ACTIVIDADES DURANTE" in row_str or "ACTIVIDADES DE VENTANA" in row_str or "ACTIVIDADES VENTANA" in row_str:
+            current_section = "ventana"
+            print(f"[DEBUG] Fila {row_idx}: Banner detectado para sección '{current_section}'")
+            continue
+
+        # 3. Encabezados de columnas de la tabla (N°, ACTIVIDAD, FECHA Y HORA, RESPONSABLE...)
+        if "ACTIVIDAD" in row_str and any(k in row_str for k in ["FECHA", "HORA", "RESPONSABLE"]):
             if "PREVIA" in row_str:
                 current_section = "previas"
             else:
@@ -55,31 +92,6 @@ def parse_plan_de_trabajo(libro):
                         current_headers.append(str(h).strip())
             print(f"[DEBUG] Fila {row_idx}: Encabezado detectado para sección '{current_section}'")
             continue
-
-        # Verificar si es una fila de actividad (primer valor numérico de actividad 1, 2, 3...)
-        first_val = row[0]
-        is_num = False
-        if isinstance(first_val, int):
-            is_num = True
-        elif first_val is not None:
-            val_clean = str(first_val).strip()
-            if val_clean.isdigit():
-                is_num = True
-                
-        if is_num and current_section:
-            item = {}
-            for col_idx, val in enumerate(row):
-                if col_idx < len(current_headers):
-                    header_name = current_headers[col_idx]
-                    if header_name:
-                        item[header_name] = val
-            
-            # Asegurar que tenga al menos actividad o responsable
-            if item.get("ACTIVIDAD") or item.get("RESPONSABLE"):
-                if current_section == "previas":
-                    previas.append(item)
-                else:
-                    ventana.append(item)
 
     print(f"[DEBUG] Plan de trabajo procesado: {len(previas)} previas, {len(ventana)} ventana.")
     return eliminar_vacios(previas), eliminar_vacios(ventana)

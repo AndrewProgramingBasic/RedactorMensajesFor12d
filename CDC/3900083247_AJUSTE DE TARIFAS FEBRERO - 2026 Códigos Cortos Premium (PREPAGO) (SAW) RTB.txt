@@ -1,0 +1,110 @@
+﻿Buenas Noches
+
+Se da Inicio al siguiente Trabajo
+
+
+Ticket 
+*CDC# 3900083247*
+
+*Nombre del Trabajo:*
+
+ AJUSTE DE TARIFAS FEBRERO - 2026 Códigos Cortos Premium (PREPAGO)
+(SAW) RTB  
+*Hora de inicio:* 23:00
+
+*Servicios / Aplicaciones Afectadas*
+
+
+ N/A
+
+*Justificación:*
+ Durante el proceso de actualización de tarifas para el periodo vigente, se incurrió en un error involuntario de transcripción en el archivo de configuración enviado al área técnica.
+•	Tarifa aprobada (Punto de Cuenta): Bs. 36.67080
+•	Tarifa cargada por error: Bs. 36.37080
+•	Diferencia unitaria: Bs. 0.30000
+Esta inconsistencia fue reportada por el Integrador, quien, al realizar la conciliación de sus reportes de tráfico contra la facturación generada, detectó que los montos no coinciden con las condiciones comerciales previamente pactadas y reflejadas en el Punto de Cuenta.
+De mantenerse la tarifa errónea (Bs. 36.37080), se generarían las siguientes incidencias: inconsistencia en Reportes, pérdida en Recaudación y reclamos Comerciales.
+Se requiere de realizar un ajuste de tarifas en el facturador al monto correcto de Bs. 36.67080 con carácter de urgencia. Esto permitirá regularizar los ciclos de facturación pendientes y asegurar que la información en sistema guarde total integridad con los documentos legales y comerciales que la sustentan.
+
+*Responsable de Trabajo:*
+
+ Felix Mejias // 4164553490 // Proceso de Tasación
+
+------------------------------------------------------------
+
+
+Buenas Noches, dando continuidad con la For12D, se solicita al personal de la Coord. Implementacion
+Daniel Medina	
+0412-3539661 ejecutar las siguientes actividades:
+
+	Llamar al COR Notificando inicio de Ventana
+	Enviar Correo de Inicio de Ventana.
+
+
+Estaré pendiente de sus comentarios y del envío de las evidencias.
+
+------------------------------------------------------------
+
+
+Buenas Noches, prosiguiendo con lo estipulado en la For12D, se solicita al personal de la Coordinación Procesos de Tasación 
+Felix Mejias 
+(4164553490) ejecutar las siguientes actividades:
+
+	Configuración de las tarifas en SAW.
+	Verificar que los cambios fueron realizado correctamente.
+
+
+Agradezco sus comentarios y solicito el envío de las evidencias.
+
+------------------------------------------------------------
+
+
+Buenas Noches, dando continuidad con la For12D, se solicita al personal de la Coordinación Plataforma Prepago 
+Eduardo Perez
+(4263774601) ejecutar las siguientes actividades:
+
+	Validacion de actualizacion de SDP.
+
+Quedo atento a sus comentarios y a la recepción de las evidencias.
+
+------------------------------------------------------------
+
+
+Buenos Días, continuando con el trabajo, se solicita al personal de la Coordinación de Mensajería
+Gregorio Blanco
+(4128146804) ejecutar las siguientes actividades:
+
+	Actualizacion de Tarifa en Base de Datos TollDato
+
+Agradezco sus comentarios y solicito el envío de las evidencias.
+
+------------------------------------------------------------
+
+
+
+Buenas Tardes
+
+Se da Fin al siguiente Trabajo
+
+
+ Ticket 
+*CDC# 3900083247*
+
+*Nombre del Trabajo:*
+
+ AJUSTE DE TARIFAS FEBRERO - 2026 Códigos Cortos Premium (PREPAGO)
+(SAW) RTB    
+
+*Resultado:*
+
+
+OK
+
+*Justificación:*
+Se confirma la ejecución exitosa de todas las actividades: AJUSTE DE TARIFAS FEBRERO - 2026 Códigos Cortos Premium (PREPAGO)
+(SAW) RTB
+
+*Responsable de Trabajo:*
+
+ Felix Mejias // 4164553490 // Proceso de Tasación
+
