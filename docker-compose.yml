@@ -11,3 +11,5 @@ services:
     environment:
       - VIRTUAL_HOST=redactor.adantechti.com
     restart: always
+    networks:
+      - vpti_internal_net
