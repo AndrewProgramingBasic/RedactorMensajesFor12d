@@ -10,6 +10,11 @@ services:
       - .:/app
     environment:
       - VIRTUAL_HOST=redactor.adantechti.com
+      - VIRTUAL_PORT=5000
     restart: always
     networks:
       - vpti_internal_net
+
+networks:
+  vpti_internal_net:
+    external: true

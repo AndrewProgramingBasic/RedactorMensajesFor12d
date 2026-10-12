@@ -92,16 +92,33 @@ def index():
     return render_template('index.html', error=None)
 
 
-@app.route('/api/redactar', methods=['POST'])
-@app.route('/api', methods=['POST'])
+@app.after_request
+def add_cors_headers(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
+    return response
+
+
+@app.route('/api/redactar', methods=['GET', 'POST', 'OPTIONS'])
+@app.route('/api/redactar/', methods=['GET', 'POST', 'OPTIONS'])
+@app.route('/api', methods=['GET', 'POST', 'OPTIONS'])
+@app.route('/api/', methods=['GET', 'POST', 'OPTIONS'])
 def api_redactar():
     """
     Endpoint API híbrido:
-    - Permite recibir multipart/form-data con archivo Excel ('file') y parámetros ('cdc', etc.).
-    - Permite recibir application/json con datos estructurados ('cdc', 'generales', 'actividades', 'previas').
-    - Procesa en memoria sin guardar en disco.
-    - Devuelve JSON con el resultado unificado y el desglose estructurado.
+    - GET: Retorna estado del servicio (Health Check)
+    - POST: Permite multipart/form-data con archivo Excel o application/json estructurado.
+    - OPTIONS: Preflight CORS
     """
+    if request.method == 'OPTIONS':
+        return '', 204
+    if request.method == 'GET':
+        return jsonify({
+            "status": "online",
+            "service": "Redactor Mensajes FOR12 API",
+            "message": "API activa y lista para recibir peticiones POST."
+        }), 200
     try:
         cdc = "000000"
         generales = {}
@@ -228,6 +245,6 @@ def api_redactar():
 
 
 if __name__ == '__main__':
-    print("\nIniciando servidor Redactor de Mensajes FOR12 en http://localhost:5000")
+    print("\nIniciando servidor Redactor de Mensajes FOR12 en http://0.0.0.0:7000")
     print("Monitoreando solicitudes y errores en tiempo real...\n")
-    app.run(debug=True, port=7000)
+    app.run(host="0.0.0.0", port=7000, debug=True)
